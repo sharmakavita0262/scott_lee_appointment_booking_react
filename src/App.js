@@ -54,7 +54,6 @@ export default function App() {
             <SettingsDrawer />
             <ProgressBar />
             <AuthConsumer>
-              {/* <Router /> */}
               <RouteWrapper />
             </AuthConsumer>
           </MotionLazy>

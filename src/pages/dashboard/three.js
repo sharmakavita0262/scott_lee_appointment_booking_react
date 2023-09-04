@@ -4,7 +4,7 @@ import ThreeView from 'src/sections/three/view';
 
 // ----------------------------------------------------------------------
 
-export default function Page() {
+export default function Page3() {
   return (
     <>
       <Helmet>

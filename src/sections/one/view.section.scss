@@ -1,0 +1,104 @@
+.header {
+  padding: 19px 0px;
+  border-bottom: 0.5px solid lightgray;
+  .heading {
+    padding: 0 15px;
+    h2 {
+      font-size: 30px !important;
+      font-weight: 500;
+      color: #00a76f;
+    }
+  }
+}
+.sidebar {
+  padding-top: 30px;
+  border-right: 0.5px solid lightgray;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: 25px;
+  .service_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+    margin-top: 20px;
+    .userImg {
+      img {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        display: block;
+        object-fit: cover;
+        border-radius: 100%;
+      }
+    }
+    .user_details {
+      text-align: center;
+      margin: 20px 10px;
+      .user_heading {
+        font-size: 23px;
+        font-weight: 600;
+        color: #00a76f;
+      }
+      .userHeading_details {
+        color: #637381;
+      }
+    }
+    .questions {
+      text-align: center;
+      margin: 20px 10px;
+      .user_heading {
+        font-size: 23px;
+        font-weight: 600;
+        color: #00a76f;
+      }
+      .userHeading_details {
+        color: #637381;
+      }
+    }
+  }
+}
+.dashbord {
+  padding: 30px;
+  .service_box {
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px #00000054;
+    .card {
+      display: flex;
+      justify-content: space-between;
+      border: 0.5px solid lightgray;
+      padding: 15px;
+      border-radius: 11px;
+      margin: 10px 0;
+      cursor: pointer;
+      .card-userDetails {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        .card-userImg {
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 11px;
+          }
+        }
+        .card-userName {
+          h4 {
+            font-size: 20px;
+            font-weight: 500;
+          }
+          span {
+            color: #7a7a7a;
+          }
+        }
+      }
+      .services {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

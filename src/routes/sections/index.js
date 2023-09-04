@@ -8,20 +8,16 @@ import { mainRoutes } from './main';
 
 import { authRoutes } from './auth';
 import { dashboardRoutes } from './dashboard';
-import Page from '../../pages/dashboard/one';
+import Dashboard from '../../pages/dashboard';
 import Page2 from '../../pages/dashboard/two';
-// ----------------------------------------------------------------------
-// {/* <HashRouter basename="/app">
-//   <Routes>
-//     <Route path="/" /> {/* 👈 Renders at /#/app/ */}
-//   </Routes>
-// </HashRouter>; */}
+import Page from '../../pages/dashboard/one';
 
 const RouteWrapper = () => (
   <HashRouter>
     <Routes>
       <Route path="/" element={<Page />} />
-      <Route path="/one" element={<Page2 />} />
+      {/* <Route path="/two" element={<Page2 />} />
+      <Route path="/two" element={<Page2 />} /> */}
     </Routes>
   </HashRouter>
 );

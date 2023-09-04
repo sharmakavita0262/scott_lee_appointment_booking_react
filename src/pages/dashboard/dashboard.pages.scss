@@ -1,0 +1,53 @@
+.stepButtons {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar {
+  padding-top: 30px;
+  border-right: 0.5px solid lightgray;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: 25px;
+  .service_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+    margin-top: 20px;
+    .userImg {
+      img {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        display: block;
+        object-fit: cover;
+        border-radius: 100%;
+      }
+    }
+    .user_details {
+      text-align: center;
+      margin: 20px 10px;
+      .user_heading {
+        font-size: 23px;
+        font-weight: 600;
+        color: #00a76f;
+      }
+      .userHeading_details {
+        color: #637381;
+      }
+    }
+    .questions {
+      text-align: center;
+      margin: 20px 10px;
+      .user_heading {
+        font-size: 23px;
+        font-weight: 600;
+        color: #00a76f;
+      }
+      .userHeading_details {
+        color: #637381;
+      }
+    }
+  }
+}
