@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 // sections
-import FiveView from 'src/sections/five/view';
+import FiveView from '../../sections/five/view';
 
 // ----------------------------------------------------------------------
 
-export default function Page() {
+export default function Page5() {
   return (
     <>
       <Helmet>

@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet-async';
 import Page from './one';
 import Page2 from './two';
 import Page3 from './three';
+import Page4 from './four';
+import Page5 from './five';
 
 function Dashboard() {
   const [activeStep, setActiveStep] = React.useState(1);
@@ -36,6 +38,18 @@ function Dashboard() {
       case 3:
         return (
           <Page3
+          //  formValue={formValue} _handleBack={_handleBack}
+          />
+        );
+      case 4:
+        return (
+          <Page4
+          //  formValue={formValue} _handleBack={_handleBack}
+          />
+        );
+      case 5:
+        return (
+          <Page5
           //  formValue={formValue} _handleBack={_handleBack}
           />
         );

@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 // sections
-import ThreeView from 'src/sections/three/view';
+import ThreeView from '../../sections/three/view';
 
 // ----------------------------------------------------------------------
 
