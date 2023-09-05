@@ -25,7 +25,7 @@ export default function OneView() {
           mt: 3,
         }}
       >
-        <Box className="progressBar">
+        {/* <Box className="progressBar">
           <MobileStepper
             variant="progress"
             steps={6}
@@ -35,24 +35,21 @@ export default function OneView() {
             nextButton={
               <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
                 Next
-                {/* {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />} */}
               </Button>
             }
             backButton={
               <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-                {/* {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />} */}
                 Back
               </Button>
             }
           />
-        </Box>
+        </Box> */}
 
         <Grid container spacing={3}>
           <Grid item xs={12} md={3} lg={3}>
             <Box className="sidebar">
               <Box className="service_heading">
                 <Box className="userImg">
-                  {/* <img src={TImage} alt="temp" /> */}
                   <img
                     src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
                     alt="temp"

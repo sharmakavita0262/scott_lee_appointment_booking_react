@@ -1,5 +1,5 @@
 // scrollbar
-import 'simplebar-react/dist/simplebar.min.css';
+// import 'simplebar-react/dist/simplebar.min.css';
 
 // image
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -7,18 +7,18 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 // ----------------------------------------------------------------------
 
 // routes
-import RouteWrapper from 'src/routes/sections';
+import RouteWrapper from './routes/index';
 // import Router from 'src/routes/sections';
 // theme
-import ThemeProvider from 'src/theme';
+// import ThemeProvider from './theme/index'
 // hooks
-import { useScrollToTop } from 'src/hooks/use-scroll-to-top';
+// import { useScrollToTop } from './routes/hooks/use-pathname'
 // components
-import ProgressBar from 'src/components/progress-bar';
-import { MotionLazy } from 'src/components/animate/motion-lazy';
-import { SettingsProvider, SettingsDrawer } from 'src/components/settings';
+// import ProgressBar from './components/progress-bar/progress-bar'
+// import { MotionLazy } from 'src/components/animate/motion-lazy';
+// import SettingsProvider from './components/settings/context/settings-provider'
 // auth
-import { AuthProvider, AuthConsumer } from 'src/auth/context/jwt';
+// import { AuthProvider, AuthConsumer } from 'src/auth/context/jwt';
 
 // ----------------------------------------------------------------------
 
@@ -35,11 +35,12 @@ export default function App() {
 
   console.info(`%c${charAt}`, 'color: #5BE49B');
 
-  useScrollToTop();
+  // useScrollToTop();
 
-  return (
-    <AuthProvider>
-      <SettingsProvider
+  return <RouteWrapper />;
+}
+// <AuthProvider>
+/* <SettingsProvider
         defaultSettings={{
           themeMode: 'light', // 'light' | 'dark'
           themeDirection: 'ltr', //  'rtl' | 'ltr'
@@ -48,17 +49,15 @@ export default function App() {
           themeColorPresets: 'default', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
           themeStretch: false,
         }}
-      >
-        <ThemeProvider>
-          <MotionLazy>
-            <SettingsDrawer />
-            <ProgressBar />
-            <AuthConsumer>
-              <RouteWrapper />
-            </AuthConsumer>
-          </MotionLazy>
-        </ThemeProvider>
-      </SettingsProvider>
-    </AuthProvider>
-  );
-}
+      > */
+/* <ThemeProvider> */
+/* <MotionLazy> */
+/* <SettingsDrawer /> */
+/* <ProgressBar /> */
+/* // <AuthConsumer> */
+// <RouteWrapper />
+/* </AuthConsumer> */
+/* </MotionLazy> */
+/* </ThemeProvider> */
+/* </SettingsProvider> */
+/* </AuthProvider> */
