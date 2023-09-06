@@ -1,7 +1,7 @@
 import { Box, Button, Container, Grid, Typography, MobileStepper } from '@mui/material';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-
+import Sidebar from '../../components/sidebar';
 import Page from './one';
 import Page2 from './two';
 import Page3 from './three';
@@ -15,6 +15,25 @@ function Dashboard() {
     setActiveStep(activeStep + 1);
     const { programTitle } = value;
   };
+
+  const headerData = [
+    {
+      heading: 'Service Selection',
+    },
+    {
+      heading: 'Service Selection Category',
+    },
+    {
+      heading: 'Personal Preferences',
+    },
+    {
+      heading: 'Service Provider',
+    },
+    {
+      heading: 'Service Selection Category',
+    },
+  ];
+
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -67,27 +86,29 @@ function Dashboard() {
       <Box
         sx={{
           height: '100vh',
-          mt: 3,
+          padding: '0px',
         }}
       >
-        <Box className="progressBar">
-          <MobileStepper
-            variant="progress"
-            steps={6}
-            position="static"
-            activeStep={activeStep}
-            sx={{ maxWidth: 400, flexGrow: 1 }}
-          />
-        </Box>
-        {renderStepContent(activeStep)}
-        <Button size="small" onClick={handleBack} disabled={activeStep === 1}>
-          {/* {theme.direction === 'rtl' ? <ArrowRightAltIcon /> : <ArrowLeftAltIcon />} */}
-          Back
-        </Button>
-        <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
-          Next
-          {/* {theme.direction === 'rtl' ? <ArrowLeftAltIcon /> : <ArrowRightAltIcon />} */}
-        </Button>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6} lg={3}>
+            <Sidebar step={activeStep} content={headerData[activeStep - 1]} />
+          </Grid>
+          <Grid item xs={12} md={6} lg={9}>
+            {renderStepContent(activeStep)}
+            <Box className="navigation-btn">
+              {activeStep > 1 && (
+                <Button size="small step-back-btn" onClick={handleBack} disabled={activeStep === 1}>
+                  {/* {theme.direction === 'rtl' ? <ArrowRightAltIcon /> : <ArrowLeftAltIcon />} */}
+                  Back
+                </Button>
+              )}
+              <Button size="small step-back-nxt" onClick={handleNext} disabled={activeStep === 5}>
+                Next
+                {/* {theme.direction === 'rtl' ? <ArrowLeftAltIcon /> : <ArrowRightAltIcon />} */}
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
       </Box>
     </div>
   );
