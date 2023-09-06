@@ -1,0 +1,23 @@
+.product-service-card {
+  border: 1px solid silver;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.product-service-card img {
+  height: 160px;
+  width: 160px;
+  border-radius: 90%;
+  margin: 0 auto;
+}
+
+.product-card-data {
+  text-align: center;
+  border-top: 1px solid sliver !important;
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid silver;
+}

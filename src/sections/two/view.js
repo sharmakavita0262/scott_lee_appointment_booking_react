@@ -29,7 +29,7 @@ export default function TowView() {
                       <Typography variant="span">sub Category</Typography>
                     </Box>
                   </Box>
-                  <Box className="services">
+                  <Box className="services service-figure">
                     <Typography variant="span">$0,000.00</Typography>
                     <Typography className="start-text" variant="span">
                       STARTS FROM
@@ -49,7 +49,7 @@ export default function TowView() {
                       <Typography variant="span">sub Category</Typography>
                     </Box>
                   </Box>
-                  <Box className="services">
+                  <Box className="services service-figure">
                     <Typography variant="span">$0,000.00</Typography>
                     <Typography className="start-text" variant="span">
                       STARTS FROM
@@ -69,7 +69,7 @@ export default function TowView() {
                       <Typography variant="span">sub Category</Typography>
                     </Box>
                   </Box>
-                  <Box className="services">
+                  <Box className="services service-figure">
                     <Typography variant="span">$0,000.00</Typography>
                     <Typography className="start-text" variant="span">
                       STARTS FROM
@@ -89,7 +89,7 @@ export default function TowView() {
                       <Typography variant="span">sub Category</Typography>
                     </Box>
                   </Box>
-                  <Box className="services">
+                  <Box className="services service-figure">
                     <Typography variant="span">$0,000.00</Typography>
                     <Typography className="start-text" variant="span">
                       STARTS FROM

@@ -7,6 +7,7 @@ import Page2 from './two';
 import Page3 from './three';
 import Page4 from './four';
 import Page5 from './five';
+import SummaryCard from '../../components/summaryCard';
 
 function Dashboard() {
   const [activeStep, setActiveStep] = React.useState(1);
@@ -93,21 +94,65 @@ function Dashboard() {
           <Grid item xs={12} md={6} lg={3}>
             <Sidebar step={activeStep} content={headerData[activeStep - 1]} />
           </Grid>
-          <Grid item xs={12} md={6} lg={9}>
-            {renderStepContent(activeStep)}
-            <Box className="navigation-btn">
-              {activeStep > 1 && (
-                <Button size="small step-back-btn" onClick={handleBack} disabled={activeStep === 1}>
-                  {/* {theme.direction === 'rtl' ? <ArrowRightAltIcon /> : <ArrowLeftAltIcon />} */}
-                  Back
-                </Button>
-              )}
-              <Button size="small step-back-nxt" onClick={handleNext} disabled={activeStep === 5}>
-                Next
-                {/* {theme.direction === 'rtl' ? <ArrowLeftAltIcon /> : <ArrowRightAltIcon />} */}
-              </Button>
-            </Box>
-          </Grid>
+          {activeStep <= 2 ? (
+            <Grid item xs={12} md={6} lg={9}>
+              <Box sx={{ position: 'relative', height: '100vh' }}>
+                {renderStepContent(activeStep)}
+                <Box className="navigation-btn">
+                  <Button
+                    className={activeStep === 1 && 'step-back-btn-inactive'}
+                    size="small step-back-btn"
+                    onClick={handleBack}
+                    disabled={activeStep === 1}
+                  >
+                    {/* {theme.direction === 'rtl' ? <ArrowRightAltIcon /> : <ArrowLeftAltIcon />} */}
+                    Back
+                  </Button>
+
+                  <Button
+                    size="small step-back-nxt"
+                    onClick={handleNext}
+                    disabled={activeStep === 5}
+                  >
+                    Next
+                    {/* {theme.direction === 'rtl' ? <ArrowLeftAltIcon /> : <ArrowRightAltIcon />} */}
+                  </Button>
+                </Box>
+              </Box>
+            </Grid>
+          ) : (
+            <>
+              <Grid item xs={12} md={6} lg={6}>
+                <Box sx={{ position: 'relative', height: '100vh' }}>
+                  {renderStepContent(activeStep)}
+                  <Box className="navigation-btn">
+                    {activeStep > 1 && (
+                      <Button
+                        className={activeStep === 1 && 'step-back-btn-inactive'}
+                        size="small step-back-btn"
+                        onClick={handleBack}
+                        disabled={activeStep === 1}
+                      >
+                        {/* {theme.direction === 'rtl' ? <ArrowRightAltIcon /> : <ArrowLeftAltIcon />} */}
+                        Back
+                      </Button>
+                    )}
+                    <Button
+                      size="small step-back-nxt"
+                      onClick={handleNext}
+                      disabled={activeStep === 5}
+                    >
+                      Next
+                      {/* {theme.direction === 'rtl' ? <ArrowLeftAltIcon /> : <ArrowRightAltIcon />} */}
+                    </Button>
+                  </Box>
+                </Box>
+              </Grid>
+              <Grid item xs={12} md={6} lg={3} className="summery-steps">
+                <SummaryCard heading={activeStep} />
+              </Grid>
+            </>
+          )}
         </Grid>
       </Box>
     </div>

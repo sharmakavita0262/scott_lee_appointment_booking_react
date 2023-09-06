@@ -1,0 +1,66 @@
+.summery-steps {
+  padding-left: 0px !important;
+  border-left: 1px solid lightgrey;
+}
+
+.summery-heading {
+  font-size: 30px !important;
+  font-weight: 500;
+  color: #00a76f;
+  padding: 15px 0px 15px 30px;
+  border-bottom: 0.5px solid lightgray;
+}
+
+.summery-card {
+  padding: 20px 20px 0px 30px;
+}
+
+.summery-selection-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.summery-card-title {
+  padding: 10px 0 15px 0px;
+  font-size: 22px !important;
+  font-weight: 500;
+  color: #000;
+}
+
+.summery-sub-title {
+  padding: 10px 0 10px 0px;
+  font-size: 16px !important;
+  font-weight: 500;
+  color: #000;
+  color: lightslategray;
+}
+
+.summery-selection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #00a76f;
+}
+
+.summery-selection-title {
+  color: #fff;
+  font-weight: 500 !important;
+  font-size: 17px !important;
+}
+
+.summery-selection-text {
+  color: #fff;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+}
+
+.progressBar-line span span {
+  background-color: #00a872 !important;
+}
+
+.step-back-btn:hover {
+  background: #212b36 !important;
+}

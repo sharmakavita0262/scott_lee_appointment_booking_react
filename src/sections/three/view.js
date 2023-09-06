@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import './view.section.scss';
 
 export default function ThreeView() {
@@ -14,74 +14,110 @@ export default function ThreeView() {
               </Box>
             </Box>
             <Box className="dashbord">
-              <Box className="service_box">
-                <Box className="card">
-                  <Box className="card-userDetails">
-                    <Box className="card-userImg">
-                      <img
-                        src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
-                        alt="temp"
-                      />
-                    </Box>
-                    <Box className="card-userName">
-                      <Typography variant="h4">Service Category</Typography>
-                      <Typography variant="span">sub Category</Typography>
-                    </Box>
-                  </Box>
-                  <Box className="services">
-                    <Typography variant="span">00Service</Typography>
-                  </Box>
+              <Box className="service_box Preferences-card-input">
+                <Box className="card card-input">
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={10}
+                      label="Age"
+                      // onChange={handleChange}
+                    >
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                    <Typography
+                      sx={{
+                        color: '#808080',
+                        fontSize: '13px',
+                        paddingLeft: '10px',
+                        paddingTop: '10px',
+                      }}
+                    >
+                      Helper Text / Hint
+                    </Typography>
+                  </FormControl>
                 </Box>
-                <Box className="card">
-                  <Box className="card-userDetails">
-                    <Box className="card-userImg">
-                      <img
-                        src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
-                        alt="temp"
-                      />
-                    </Box>
-                    <Box className="card-userName">
-                      <Typography variant="h4">Service Category</Typography>
-                      <Typography variant="span">sub Category</Typography>
-                    </Box>
-                  </Box>
-                  <Box className="services">
-                    <Typography variant="span">00Service</Typography>
-                  </Box>
+                <Box className="card card-input">
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={10}
+                      label="Age"
+                      // onChange={handleChange}
+                    >
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                    <Typography
+                      sx={{
+                        color: '#808080',
+                        fontSize: '13px',
+                        paddingLeft: '10px',
+                        paddingTop: '10px',
+                      }}
+                    >
+                      Helper Text / Hint
+                    </Typography>
+                  </FormControl>
                 </Box>
-                <Box className="card">
-                  <Box className="card-userDetails">
-                    <Box className="card-userImg">
-                      <img
-                        src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
-                        alt="temp"
-                      />
-                    </Box>
-                    <Box className="card-userName">
-                      <Typography variant="h4">Service Category</Typography>
-                      <Typography variant="span">sub Category</Typography>
-                    </Box>
-                  </Box>
-                  <Box className="services">
-                    <Typography variant="span">00Service</Typography>
-                  </Box>
+                <Box className="card card-input">
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={10}
+                      label="Age"
+                      // onChange={handleChange}
+                    >
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                    <Typography
+                      sx={{
+                        color: '#808080',
+                        fontSize: '13px',
+                        paddingLeft: '10px',
+                        paddingTop: '10px',
+                      }}
+                    >
+                      Helper Text / Hint
+                    </Typography>
+                  </FormControl>
                 </Box>
-                <Box className="card">
-                  <Box className="card-userDetails">
-                    <Box className="card-userImg">
-                      <img
-                        src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
-                        alt="temp"
-                      />
-                    </Box>
-                    <Box className="card-userName">
-                      <Typography variant="h4">Service Category</Typography>
-                      <Typography variant="span">sub Category</Typography>
-                    </Box>
-                  </Box>
-                  <Box className="services">
-                    <Typography variant="span">00Service</Typography>
-                  </Box>
+                <Box className="card card-input">
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={10}
+                      label="Age"
+                      // onChange={handleChange}
+                    >
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                    <Typography
+                      sx={{
+                        color: '#808080',
+                        fontSize: '13px',
+                        paddingLeft: '10px',
+                        paddingTop: '10px',
+                      }}
+                    >
+                      Helper Text / Hint
+                    </Typography>
+                  </FormControl>
                 </Box>
               </Box>
             </Box>
