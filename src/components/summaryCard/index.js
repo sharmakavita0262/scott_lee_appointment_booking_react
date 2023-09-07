@@ -15,6 +15,10 @@ function SummaryCard(props) {
         </Box>
         <Box className="summery-card">
           <Typography className="summery-card-title">Selected Service</Typography>
+          <Box className="summery-time">
+            <Typography className="summery-time-date">Sep 24,2023</Typography>
+            <Typography className="summery-time-text">TIME ZONE</Typography>
+          </Box>
           <Typography className="summery-sub-title">YOUR PREFERENCES</Typography>
 
           <Box className="summery-selection-box">
@@ -25,6 +29,12 @@ function SummaryCard(props) {
             <Box className="summery-selection">
               <Typography className="summery-selection-title">Preferences Name:</Typography>
               <Typography className="summery-selection-text">Selection</Typography>
+            </Box>
+            <Box className="bottom-user">
+              <Box className="provider-text">
+                <Typography className="">PROVIDER</Typography>
+                <Typography className="">First Lastname</Typography>
+              </Box>
             </Box>
           </Box>
         </Box>

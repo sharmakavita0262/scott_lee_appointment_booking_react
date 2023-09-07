@@ -1,0 +1,95 @@
+.main-one .MuiPickersToolbar-root {
+  display: none;
+}
+
+.main-one .MuiPickersCalendarHeader-root {
+  padding: 0;
+  margin: 0 0 30px 0px;
+}
+
+.main-one .MuiDateCalendar-root {
+  width: 100% !important;
+  //   background: #00a975;
+  background: linear-gradient(135deg, rgba(91, 228, 155, 0.2), rgba(0, 167, 111, 0.2))
+    rgb(255, 255, 255);
+  padding: 26px;
+  border-radius: 10px;
+}
+
+.main-one .MuiDayCalendar-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between;
+}
+
+.main-one .MuiDayCalendar-weekContainer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between;
+}
+
+.main-one .MuiButtonBase-root {
+  padding: 0px;
+  margin: 0px;
+}
+
+.main-one .MuiPickersArrowSwitcher-spacer {
+  display: none;
+}
+
+.main-one {
+  padding: 15px 30px 15px 30px;
+}
+
+.main-one .MuiPickersFadeTransitionGroup-root {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.main-one .MuiSvgIcon-root {
+  color: #000 !important;
+  /* font-weight: bold !important; */
+  font-size: 21px;
+}
+
+.main-one .MuiTypography-root {
+  color: #000;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.main-one .css-1jsy6pn-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
+  //   border: 1px solid rgba(0, 0, 0, 0.6);
+  border: 1px solid #00a872;
+}
+
+.main-one .css-qa7bje-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+  color: #fff !important;
+  background-color: #00a872 !important;
+  font-weight: 500;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.main-one .css-1jsy6pn-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
+.main-one .css-1beqopj-MuiPickersYear-yearButton.Mui-selected {
+  color: #fff !important;
+  background-color: #00a872 !important;
+}
+
+.main-one .MuiButtonBase-root {
+  color: #000;
+  font-size: 15px;
+  font-weight: 700;
+}
+.main-one .MuiYearCalendar-root {
+  width: 100% !important;
+  height: 240px !important;
+}
+
+.main-one .MuiDialogActions-root {
+  display: none;
+}
+
+.main-one .MuiPickersSlideTransition-root {
+  min-height: 195px;
+}

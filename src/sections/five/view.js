@@ -1,8 +1,15 @@
-import React from 'react';
-import { Box, Grid, Typography, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Grid, Typography } from '@mui/material';
 import './view.section.scss';
+import dayjs from 'dayjs';
+import CustomDatePicker from 'src/components/CustomDatePicker';
 
-export default function FiveViewX() {
+export default function FiveView() {
+  const [newDate, setNewDate] = useState(dayjs(new Date()));
+  const handleDateChange = (e) => {
+    console.log('data===>', e);
+    setNewDate(e);
+  };
   return (
     <div className="home">
       <Box sx={{}}>
@@ -10,60 +17,15 @@ export default function FiveViewX() {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">FIVE VIEW</Typography>
+                <Typography variant="h2">Date & Time Selection</Typography>
               </Box>
             </Box>
-            <Box className="dashbord">
-              <Box className="service_box">
-                <Box className="card card-input">
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={10}
-                      label="Age"
-                      // onChange={handleChange}
-                    >
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-                <Box className="card card-input">
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={10}
-                      label="Age"
-                      // onChange={handleChange}
-                    >
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-                <Box className="card card-input">
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={10}
-                      label="Age"
-                      // onChange={handleChange}
-                    >
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-              </Box>
+            <Box className="main-one">
+              <CustomDatePicker
+                className="main"
+                value={newDate}
+                onChange={(newValue) => handleDateChange(newValue)}
+              />
             </Box>
           </Grid>
         </Grid>

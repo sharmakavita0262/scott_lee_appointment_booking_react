@@ -17,12 +17,6 @@
   }
 }
 .sidebar {
-  // padding-top: 30px;
-  // border-right: 0.5px solid lightgray;
-  // padding-right: 15px;
-  // padding-left: 15px;
-  // margin-left: 25px;
-
   .service_heading {
     display: flex;
     align-items: center;
@@ -113,6 +107,92 @@
     }
   }
 }
+
+// .sidebar-section {
+//   padding: 0px !important;
+// }
+
+// .sidebar {
+//   height: 100vh;
+//   border-right: 1px dashed #e8ecee;
+//   position: relative;
+// }
+
+// .progressBar-line {
+//   margin: 0 !important;
+//   padding: 30px 0 30px 0 !important;
+//   display: flex !important;
+//   align-items: center !important;
+//   justify-content: center !important;
+//   max-width: 300px !important;
+//   width: 100% !important;
+//   margin: 0 auto !important;
+// }
+
+// .userImg {
+//   margin: 35px 0 35px 0;
+// }
+
+// .questions {
+//   position: absolute;
+//   bottom: 25px;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   margin: 0 auto;
+//   text-align: center;
+//   gap: 5px;
+// }
+
+// .questions h4 {
+//   font-size: 23px;
+//   font-weight: 600;
+//   color: #00a76f;
+// }
+
+// .questions span {
+//   color: #637381;
+// }
+
+// .service-card {
+//   max-width: 100% !important;
+//   width: 100% !important;
+// }
+
+// .box {
+//   display: block !important;
+//   margin-top: 0px !important;
+//   padding-left: 0px !important;
+// }
+
+// .navigation-btn {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 0px 30px 0 10px;
+// }
+
+// .step-back-btn {
+//   border: 1px solid #333 !important;
+//   color: #000 !important;
+//   font-size: 16px !important;
+//   padding: 9px 22px 9px 22px !important;
+//   cursor: pointer !important;
+// }
+
+// .navigation-btn .step-back-nxt {
+//   color: #000 !important;
+//   font-size: 16px !important;
+//   padding: 9px 22px 9px 22px !important;
+//   cursor: pointer !important;
+//   background: #0078ce !important;
+//   color: #fff !important;
+// }
+
+// .progressBar {
+//   background: #fff;
+// }
 
 .sidebar-section {
   padding: 0px !important;
@@ -210,4 +290,71 @@
 
 .step-back-btn-inactive {
   opacity: 0 !important;
+}
+
+.MuiTabs-flexContainer {
+  display: flex !important;
+  justify-content: space-between !important;
+  position: relative;
+}
+
+.MuiTabs-flexContainer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(135deg, rgba(91, 228, 155, 0.2), rgba(0, 167, 111, 0.2));
+}
+
+.tabs-menu {
+  padding-bottom: 35px;
+}
+
+.dashbord .MuiButtonBase-root {
+  color: #00a76f !important;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.dashbord .MuiTabs-indicator {
+  background: #00a76f !important;
+}
+
+.account-box {
+  padding: 0 50px 0 50px;
+}
+
+.account-box .MuiGrid-root {
+  padding-left: 0px !important;
+}
+
+.links {
+  width: 100%;
+  margin-top: 10px;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.login-button {
+  width: 100%;
+}
+
+.login-button .MuiButtonBase-root {
+  width: 100% !important;
+  padding: 10px !important;
+  background-color: #00a872 !important;
+  color: #fff !important;
+}
+
+.forget-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
 }

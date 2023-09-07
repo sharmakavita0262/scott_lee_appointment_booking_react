@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Box, Button, Container, Grid, Typography, MobileStepper } from '@mui/material';
+import { Box, Typography, MobileStepper } from '@mui/material';
 
 function Sidebar(props) {
   const { step, content } = props;
@@ -14,7 +14,7 @@ function Sidebar(props) {
           <MobileStepper
             className="progressBar-line"
             variant="progress"
-            steps={6}
+            steps={10}
             position="static"
             activeStep={step}
             sx={{ maxWidth: 400, flexGrow: 1 }}
@@ -29,7 +29,7 @@ function Sidebar(props) {
           </Box>
           <Box className="user_details">
             <Typography variant="h4" className="user_heading">
-              {content.heading}
+              {content?.heading}
             </Typography>
             <Typography variant="span" className="userHeading_details">
               Please select a service for which you want to schedule an appointment

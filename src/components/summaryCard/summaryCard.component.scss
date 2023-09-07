@@ -64,3 +64,63 @@
 .step-back-btn:hover {
   background: #212b36 !important;
 }
+
+.forget-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.bottom-user .provider-text {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  padding-top: 15px;
+}
+
+.bottom-user {
+  border-top: 1px solid lightgray;
+}
+
+.summery-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.forget-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.provider-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-top: 15px;
+}
+
+.bottom-user {
+  border-top: 1px solid lightgray;
+}
+
+.summery-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summery-time .summery-time-date {
+  color: #0078ce;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.summery-time .summery-time-text {
+  color: #000;
+  font-size: 13px;
+  font-weight: 500;
+}

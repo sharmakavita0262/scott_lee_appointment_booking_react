@@ -1,5 +1,7 @@
-import { Box, Button, Container, Grid, Typography, MobileStepper } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import React from 'react';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Helmet } from 'react-helmet-async';
 import Sidebar from '../../components/sidebar';
 import Page from './one';
@@ -8,13 +10,14 @@ import Page3 from './three';
 import Page4 from './four';
 import Page5 from './five';
 import SummaryCard from '../../components/summaryCard';
+import Page6 from './six';
+import Page7 from './seven';
 
 function Dashboard() {
-  const [activeStep, setActiveStep] = React.useState(1);
+  const [activeStep, setActiveStep] = React.useState(5);
   const setStepData = (value) => {
     // setFormValue(value);
     setActiveStep(activeStep + 1);
-    const { programTitle } = value;
   };
 
   const headerData = [
@@ -31,7 +34,10 @@ function Dashboard() {
       heading: 'Service Provider',
     },
     {
-      heading: 'Service Selection Category',
+      heading: 'Date & Time',
+    },
+    {
+      heading: 'Date & Time',
     },
   ];
 
@@ -73,6 +79,18 @@ function Dashboard() {
           //  formValue={formValue} _handleBack={_handleBack}
           />
         );
+      case 6:
+        return (
+          <Page6
+          //  formValue={formValue} _handleBack={_handleBack}
+          />
+        );
+      case 7:
+        return (
+          <Page7
+          //  formValue={formValue} _handleBack={_handleBack}
+          />
+        );
       default:
         return <div>Not Found</div>;
     }
@@ -105,17 +123,17 @@ function Dashboard() {
                     onClick={handleBack}
                     disabled={activeStep === 1}
                   >
-                    {/* {theme.direction === 'rtl' ? <ArrowRightAltIcon /> : <ArrowLeftAltIcon />} */}
+                    <ChevronLeftIcon />
                     Back
                   </Button>
 
                   <Button
                     size="small step-back-nxt"
                     onClick={handleNext}
-                    disabled={activeStep === 5}
+                    disabled={activeStep === 10}
                   >
                     Next
-                    {/* {theme.direction === 'rtl' ? <ArrowLeftAltIcon /> : <ArrowRightAltIcon />} */}
+                    <ChevronRightIcon />
                   </Button>
                 </Box>
               </Box>
@@ -133,17 +151,16 @@ function Dashboard() {
                         onClick={handleBack}
                         disabled={activeStep === 1}
                       >
-                        {/* {theme.direction === 'rtl' ? <ArrowRightAltIcon /> : <ArrowLeftAltIcon />} */}
-                        Back
+                        <ChevronLeftIcon /> Back
                       </Button>
                     )}
                     <Button
                       size="small step-back-nxt"
                       onClick={handleNext}
-                      disabled={activeStep === 5}
+                      disabled={activeStep === 10}
                     >
                       Next
-                      {/* {theme.direction === 'rtl' ? <ArrowLeftAltIcon /> : <ArrowRightAltIcon />} */}
+                      <ChevronRightIcon />
                     </Button>
                   </Box>
                 </Box>
