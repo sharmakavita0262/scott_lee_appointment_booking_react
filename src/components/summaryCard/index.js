@@ -32,8 +32,40 @@ function SummaryCard(props) {
             </Box>
             <Box className="bottom-user">
               <Box className="provider-text">
-                <Typography className="">PROVIDER</Typography>
+                <Typography className="summary-label">PROVIDER</Typography>
                 <Typography className="">First Lastname</Typography>
+              </Box>
+            </Box>
+            <Box className="your-details">
+              <Typography className="summary-label">YOUR DETAILS</Typography>
+              <Typography>support@emailaddress.com</Typography>
+            </Box>
+            <Box className="booking-summery">
+              <Typography className="summary-label">YOUR DETAILS</Typography>
+              <Box className="user-box">
+                <Box className="user-box-title">
+                  <Typography>CUSTOMER</Typography>
+                </Box>
+                <Box className="user-avtar-box">
+                  <img
+                    src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
+                    alt="temp"
+                  />
+                  <Typography>First Lastname</Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Box className="author-contact">
+              <Typography className="summary-label">CONTACT INFO</Typography>
+              <Typography>support@emailaddress.com</Typography>
+              <Box className="author-contact-img">
+                <Typography>234-555-1212</Typography>
+                <Typography>
+                  <img
+                    src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
+                    alt="temp"
+                  />
+                </Typography>
               </Box>
             </Box>
           </Box>

@@ -1,0 +1,58 @@
+.appointment-model {
+  width: 550px;
+}
+
+.qr-model-box img {
+  width: 100px;
+  height: 100px;
+}
+
+.conifrmation-model {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.Confirmation-title {
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: silver;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.Confirmation-code {
+  color: #000;
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.Calendar-btn {
+  border: 1px solid #52a872;
+  height: 35px;
+  width: 170px;
+}
+
+.print-btn {
+  border: 1px solid #52a872 !important;
+  height: 35px;
+  width: 120px;
+}
+
+.Confirmation-btn {
+  display: flex;
+  gap: 15px;
+}
+
+.summary-label {
+  color: #444e55;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.your-details p + p {
+  margin-top: 5px;
+}

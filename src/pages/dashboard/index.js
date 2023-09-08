@@ -12,13 +12,25 @@ import Page5 from './five';
 import SummaryCard from '../../components/summaryCard';
 import Page6 from './six';
 import Page7 from './seven';
+import Page9 from './nine';
+import Page8 from './eight';
+import OneView from '../../sections/one/view';
+import TowView from '../../sections/two/view';
+import ThreeView from '../../sections/three/view';
+import FourView from '../../sections/four/view';
+import FiveView from '../../sections/five/view';
+import SevenView from '../../sections/seven/view';
+import SixView from '../../sections/six/view';
+import NineView from '../../sections/nine/view';
+import EightView from '../../sections/eight/view';
 
 function Dashboard() {
-  const [activeStep, setActiveStep] = React.useState(5);
-  const setStepData = (value) => {
-    // setFormValue(value);
-    setActiveStep(activeStep + 1);
+  const [activeStep, setActiveStep] = React.useState(1);
+  const [formValue, setFormValue] = React.useState();
+  const setStepFormData = (value) => {
+    setFormValue((prev) => ({ ...prev, ...value }));
   };
+  console.log('formValue setStepFormData=======>', formValue);
 
   const headerData = [
     {
@@ -37,7 +49,16 @@ function Dashboard() {
       heading: 'Date & Time',
     },
     {
-      heading: 'Date & Time',
+      heading: 'Your Information',
+    },
+    {
+      heading: 'Your Information',
+    },
+    {
+      heading: 'Review & Verify',
+    },
+    {
+      heading: 'Confirmation',
     },
   ];
 
@@ -51,46 +72,24 @@ function Dashboard() {
   function renderStepContent(step) {
     switch (step) {
       case 1:
-        return <Page setStepData={setStepData} />;
+        return <OneView setStepFormData={setStepFormData} formValue={formValue} />;
       case 2:
-        return (
-          <Page2
-            setStepData={setStepData}
-            // formValue={formValue}
-            // setFormValue={setFormValue}
-            // _handleBack={_handleBack}
-          />
-        );
+        return <TowView setStepFormData={setStepFormData} formValue={formValue} />;
       case 3:
-        return (
-          <Page3
-          //  formValue={formValue} _handleBack={_handleBack}
-          />
-        );
+        return <ThreeView setStepFormData={setStepFormData} formValue={formValue} />;
       case 4:
-        return (
-          <Page4
-          //  formValue={formValue} _handleBack={_handleBack}
-          />
-        );
+        return <FourView setStepFormData={setStepFormData} formValue={formValue} />;
       case 5:
-        return (
-          <Page5
-          //  formValue={formValue} _handleBack={_handleBack}
-          />
-        );
+        return <FiveView setStepFormData={setStepFormData} formValue={formValue} />;
       case 6:
-        return (
-          <Page6
-          //  formValue={formValue} _handleBack={_handleBack}
-          />
-        );
+        return <SixView setStepFormData={setStepFormData} formValue={formValue} />;
       case 7:
-        return (
-          <Page7
-          //  formValue={formValue} _handleBack={_handleBack}
-          />
-        );
+        return <SevenView setStepFormData={setStepFormData} formValue={formValue} />;
+      case 8:
+        return <EightView setStepFormData={setStepFormData} formValue={formValue} />;
+      case 9:
+        return <NineView setStepFormData={setStepFormData} formValue={formValue} />;
+
       default:
         return <div>Not Found</div>;
     }
@@ -112,7 +111,7 @@ function Dashboard() {
           <Grid item xs={12} md={6} lg={3}>
             <Sidebar step={activeStep} content={headerData[activeStep - 1]} />
           </Grid>
-          {activeStep <= 2 ? (
+          {activeStep <= 2 || activeStep === 9 ? (
             <Grid item xs={12} md={6} lg={9}>
               <Box sx={{ position: 'relative', height: '100vh' }}>
                 {renderStepContent(activeStep)}
@@ -130,7 +129,7 @@ function Dashboard() {
                   <Button
                     size="small step-back-nxt"
                     onClick={handleNext}
-                    disabled={activeStep === 10}
+                    disabled={activeStep === 9}
                   >
                     Next
                     <ChevronRightIcon />
@@ -154,14 +153,16 @@ function Dashboard() {
                         <ChevronLeftIcon /> Back
                       </Button>
                     )}
-                    <Button
-                      size="small step-back-nxt"
-                      onClick={handleNext}
-                      disabled={activeStep === 10}
-                    >
-                      Next
-                      <ChevronRightIcon />
-                    </Button>
+                    {activeStep < 9 && (
+                      <Button
+                        size="small step-back-nxt"
+                        onClick={handleNext}
+                        disabled={activeStep === 9}
+                      >
+                        Next
+                        <ChevronRightIcon />
+                      </Button>
+                    )}
                   </Box>
                 </Box>
               </Grid>

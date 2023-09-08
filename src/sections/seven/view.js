@@ -1,18 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Tabs,
-  Tab,
-  Grid,
-  Paper,
-  Typography,
-  MenuItem,
-  Select,
-  InputLabel,
-  FormControl,
-  TextField,
-  Button,
-} from '@mui/material';
+import { Box, Tabs, Tab, Grid, Typography, TextField, Button } from '@mui/material';
 import './seven.section.scss';
 import { Link } from 'react-router-dom';
 
@@ -33,74 +20,71 @@ export default function SevenView() {
             </Box>
 
             <Box className="dashbord">
-              <Tabs
-                className="tabs-menu"
-                value={selectedTab}
-                onChange={handleTabChange}
-                // textColor="success"
-                // indicatorColor="success"
-                // aria-label="secondary tabs example"
-              >
-                <Tab value="one" label="New Client" />
-                <Tab value="two" label="Already have an account?" />
+              <Tabs className="tabs-menu" value={selectedTab} onChange={handleTabChange}>
+                <Tab value="one" label="Contact Information" />
+                <Typography className="logout-link">
+                  Not You ? <Link to="#">Logout</Link>
+                </Typography>
+                {/* <Tab value="two" className="tab-link" label="Not You ? Logout" /> */}
               </Tabs>
+
               {selectedTab === 'one' ? (
                 <Box>
                   <Grid container spacing={2}>
-                    <Grid item xs={12} md={6} lg={6} className="">
-                      <Box className="">
-                        <Box className="">
+                    <Grid item xs={12} md={6} lg={6}>
+                      <Box>
+                        <Box>
                           <TextField
                             id="outlined-basic"
-                            label="Outlined"
+                            label="FIRST NAME"
                             variant="outlined"
                             fullWidth
                           />
                         </Box>
                       </Box>
                     </Grid>
-                    <Grid item xs={12} md={6} lg={6} className="">
-                      <Box className="">
-                        <Box className="">
+                    <Grid item xs={12} md={6} lg={6}>
+                      <Box>
+                        <Box>
                           <TextField
                             id="outlined-basic"
-                            label="Outlined"
+                            label="LAST NAME"
                             variant="outlined"
                             fullWidth
                           />
                         </Box>
                       </Box>
                     </Grid>
-                    <Grid item xs={12} md={6} lg={6} className="">
-                      <Box className="">
-                        <Box className="">
+                    <Grid item xs={12} md={6} lg={6}>
+                      <Box>
+                        <Box>
                           <TextField
                             id="outlined-basic"
-                            label="Outlined"
+                            label="PHONE NUMBER"
                             variant="outlined"
                             fullWidth
                           />
                         </Box>
                       </Box>
                     </Grid>
-                    <Grid item xs={12} md={6} lg={6} className="">
-                      <Box className="">
-                        <Box className="">
+                    <Grid item xs={12} md={6} lg={6}>
+                      <Box>
+                        <Box>
                           <TextField
                             id="outlined-basic"
-                            label="Outlined"
+                            label="EMAIL"
                             variant="outlined"
                             fullWidth
                           />
                         </Box>
                       </Box>
                     </Grid>
-                    <Grid item xs={12} md={12} lg={12} className="">
-                      <Box className="">
-                        <Box className="">
+                    <Grid item xs={12} md={12} lg={12}>
+                      <Box>
+                        <Box>
                           <TextField
                             id="outlined-basic"
-                            label="Outlined"
+                            label="COMMENTS"
                             variant="outlined"
                             fullWidth
                           />
@@ -112,23 +96,19 @@ export default function SevenView() {
               ) : (
                 <Box className="account-box">
                   <Grid container spacing={2}>
-                    <Grid item xs={12} md={12} lg={12} className="">
-                      <Box className="">
-                        <TextField
-                          id="outlined-basic"
-                          label="Outlined"
-                          variant="outlined"
-                          fullWidth
-                        />
+                    <Grid item xs={12} md={12} lg={12}>
+                      <Box>
+                        <TextField id="outlined-basic" label="EMAIL" variant="outlined" fullWidth />
                       </Box>
                     </Grid>
-                    <Grid item xs={12} md={12} lg={12} className="">
-                      <Box className="">
-                        <Box className="">
+                    <Grid item xs={12} md={12} lg={12}>
+                      <Box>
+                        <Box>
                           <TextField
                             id="outlined-basic"
-                            label="Outlined"
+                            label="PASSWORD"
                             variant="outlined"
+                            type="password"
                             fullWidth
                           />
                         </Box>

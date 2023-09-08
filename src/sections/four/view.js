@@ -1,17 +1,22 @@
 import React from 'react';
-import {
-  Box,
-  Grid,
-  Typography,
-  MenuItem,
-  Select,
-  InputLabel,
-  FormControl,
-  CardMedia,
-} from '@mui/material';
+import { Box, Grid, Typography, CardMedia } from '@mui/material';
 import './view.section.scss';
+import PropTypes from 'prop-types';
 
-export default function FourView() {
+export default function FourView({ setStepFormData }) {
+  const ServiceData = [
+    { service_name: 'Provider 1', sub: 'sub- abc' },
+    { service_name: 'Provider 2', sub: 'sub- abc' },
+    { service_name: 'Provider 3', sub: 'sub- abc' },
+    { service_name: 'Provider 4', sub: 'sub- abc' },
+    { service_name: 'Provider 5', sub: 'sub- abc' },
+    { service_name: 'Provider 6', sub: 'sub- abc' },
+  ];
+  console.log('setStepFormData', setStepFormData);
+  const selectServiceProvider = (item) => {
+    setStepFormData(item);
+    console.log('selected service item', item);
+  };
   return (
     <div className="home">
       <Box sx={{}}>
@@ -24,76 +29,29 @@ export default function FourView() {
             </Box>
             <Box className="dashbord">
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={4}>
-                  <Box className="product-service-card">
-                    <CardMedia
-                      className="product-card-img"
-                      component="img"
-                      src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
-                      alt="Sample Image"
-                    />
-                    <Box className="product-card-data">
-                      <Typography>First Name</Typography>
-                      <Typography>Last Name</Typography>
-                    </Box>
-                  </Box>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                  <Box className="product-service-card">
-                    <CardMedia
-                      component="img"
-                      className="product-card-img"
-                      src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
-                      alt="Sample Image"
-                    />
-                    <Box className="product-card-data">
-                      <Typography>First Name</Typography>
-                      <Typography>Last Name</Typography>
-                    </Box>
-                  </Box>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                  <Box className="product-service-card">
-                    <CardMedia
-                      component="img"
-                      className="product-card-img"
-                      src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
-                      alt="Sample Image"
-                    />
-                    <Box className="product-card-data">
-                      <Typography>First Name</Typography>
-                      <Typography>Last Name</Typography>
-                    </Box>
-                  </Box>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                  <Box className="product-service-card">
-                    <CardMedia
-                      component="img"
-                      className="product-card-img"
-                      src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
-                      alt="Sample Image"
-                    />
-                    <Box className="product-card-data">
-                      <Typography>First Name</Typography>
-                      <Typography>Last Name</Typography>
-                    </Box>
-                  </Box>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                  <Box className="product-service-card">
-                    <CardMedia
-                      component="img"
-                      className="product-card-img"
-                      src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
-                      alt="Sample Image"
-                    />
-                    <Box className="product-card-data">
-                      <Typography>First Name</Typography>
-                      <Typography>Last Name</Typography>
-                    </Box>
-                  </Box>
-                </Grid>
+                {ServiceData &&
+                  ServiceData.length > 0 &&
+                  ServiceData.map((item) => (
+                    <Grid item xs={12} sm={6} md={4}>
+                      <Box
+                        className="product-service-card"
+                        onClick={() => {
+                          selectServiceProvider(item);
+                        }}
+                      >
+                        <CardMedia
+                          className="product-card-img"
+                          component="img"
+                          src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
+                          alt="Sample Image"
+                        />
+                        <Box className="product-card-data">
+                          <Typography>{item.service_name}</Typography>
+                          <Typography>{item.sub}</Typography>
+                        </Box>
+                      </Box>
+                    </Grid>
+                  ))}
               </Grid>
             </Box>
           </Grid>
@@ -102,3 +60,6 @@ export default function FourView() {
     </div>
   );
 }
+FourView.propTypes = {
+  setStepFormData: PropTypes.func,
+};

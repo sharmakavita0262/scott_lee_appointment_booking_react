@@ -3,9 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .header {
   padding: 0px 0px;
   border-bottom: 0.5px solid lightgray;
+
   .heading {
     // padding: 0 15px;
     h2 {
@@ -14,6 +16,248 @@
       color: #00a76f;
       padding: 15px 0px 15px 30px;
     }
+  }
+}
+
+.sidebar {
+  .service_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background: #fff;
+    // height: calc(100vh - 100px);
+    padding: 0px 30px 0px 30px;
+
+    .userImg {
+      img {
+        width: 170px;
+        height: 170px;
+        margin: 0 auto;
+        display: block;
+        object-fit: cover;
+        border-radius: 100%;
+      }
+    }
+
+    .user_details {
+      text-align: center;
+
+      // margin: 20px 10px;
+      .user_heading {
+        font-size: 23px;
+        font-weight: 600;
+        color: #00a76f;
+      }
+
+      .userHeading_details {
+        color: #637381;
+      }
+    }
+
+    .questions {
+      text-align: center;
+
+      // margin: 20px 10px;
+      .user_heading {
+        font-size: 23px;
+        font-weight: 600;
+        color: #00a76f;
+      }
+
+      .userHeading_details {
+        color: #637381;
+      }
+    }
+  }
+}
+
+.dashbord {
+  height: calc(100vh - 130px);
+  overflow-y: auto;
+  padding: 30px;
+
+  .service_box {
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px #00000054;
+
+    .card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 0.5px solid lightgray;
+      padding: 15px;
+      border-radius: 11px;
+      margin: 10px 0;
+      cursor: pointer;
+
+      .card-userDetails {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .card-userImg {
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 11px;
+          }
+        }
+
+        .card-userName {
+          h4 {
+            font-size: 20px;
+            font-weight: 500;
+          }
+
+          span {
+            color: #7a7a7a;
+          }
+        }
+      }
+
+      .services {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+// .sidebar-section {
+//   padding: 0px !important;
+// }
+
+// .sidebar {
+//   height: 100vh;
+//   border-right: 1px dashed #e8ecee;
+//   position: relative;
+// }
+
+// .progressBar-line {
+//   margin: 0 !important;
+//   padding: 30px 0 30px 0 !important;
+//   display: flex !important;
+//   align-items: center !important;
+//   justify-content: center !important;
+//   max-width: 300px !important;
+//   width: 100% !important;
+//   margin: 0 auto !important;
+// }
+
+// .userImg {
+//   margin: 35px 0 35px 0;
+// }
+
+// .questions {
+//   position: absolute;
+//   bottom: 25px;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   margin: 0 auto;
+//   text-align: center;
+//   gap: 5px;
+// }
+
+// .questions h4 {
+//   font-size: 23px;
+//   font-weight: 600;
+//   color: #00a76f;
+// }
+
+// .questions span {
+//   color: #637381;
+// }
+
+// .service-card {
+//   max-width: 100% !important;
+//   width: 100% !important;
+// }
+
+// .box {
+//   display: block !important;
+//   margin-top: 0px !important;
+//   padding-left: 0px !important;
+// }
+
+// .navigation-btn {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 0px 30px 0 10px;
+// }
+
+// .step-back-btn {
+//   border: 1px solid #333 !important;
+//   color: #000 !important;
+//   font-size: 16px !important;
+//   padding: 9px 22px 9px 22px !important;
+//   cursor: pointer !important;
+// }
+
+// .navigation-btn .step-back-nxt {
+//   color: #000 !important;
+//   font-size: 16px !important;
+//   padding: 9px 22px 9px 22px !important;
+//   cursor: pointer !important;
+//   background: #0078ce !important;
+//   color: #fff !important;
+// }
+
+// .progressBar {
+//   background: #fff;
+// }
+
+.sidebar-section {
+  padding: 0px !important;
+}
+
+.sidebar {
+  height: 100vh;
+  border-right: 1px dashed #e8ecee;
+  position: relative;
+  background: #fff;
+  z-index: 9;
+}
+
+.progressBar-line {
+  margin: 0 !important;
+  padding: 30px 0 30px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  max-width: 300px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.userImg {
+  margin: 35px 0 35px 0;
+}
+
+.questions {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  gap: 5px;
+
+  h4 {
+    font-size: 23px;
+    font-weight: 600;
+    color: #00a76f;
+  }
+
+  span {
+    color: #637381;
   }
 }
 
@@ -28,146 +272,108 @@
   padding-left: 0px !important;
 }
 
-.slot-check-line {
-  background: silver;
-  color: white;
-  width: 30%;
-  height: 1px;
-}
-
-.slot-check {
+.navigation-btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 30px 8px 0px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+
+  .step-back-btn {
+    border: 1px solid #212b36 !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    padding: 9px 22px 9px 22px !important;
+    cursor: pointer !important;
+    background: #212b36;
+  }
+
+  .step-back-nxt {
+    color: #000 !important;
+    font-size: 16px !important;
+    padding: 9px 22px 9px 22px !important;
+    cursor: pointer !important;
+    background: #00a872 !important;
+    color: #fff !important;
+  }
 }
 
-.slot-select {
-  display: flex;
-  gap: 5px;
+.progressBar {
+  background: #fff;
 }
 
-.slot-chip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #d6f5e6;
-  height: 40px;
-  border-radius: 10px;
-  border: 0;
-  font-size: 15px !important;
-  color: #1e2b35;
-  font-weight: bold;
+.step-back-btn-inactive {
+  opacity: 0 !important;
 }
 
-.slot-chip-active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #00a76f;
-  height: 40px;
-  border-radius: 10px;
-  border: 0;
-  font-size: 15px !important;
-  color: #fff;
-  font-weight: bold;
-}
-
-.select-date .MuiPickersCalendarHeader-root {
-  display: none !important;
-}
-
-.select-date .MuiPickersToolbar-root {
-  display: none;
-}
-
-.select-date .MuiPickersCalendarHeader-root {
-  padding: 0;
-  margin: 0 0 30px 0px;
-}
-
-.select-date .MuiDateCalendar-root {
-  width: 100% !important;
-  background: linear-gradient(135deg, rgba(91, 228, 155, 0.2), rgba(0, 167, 111, 0.2))
-    rgb(255, 255, 255);
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.select-date .MuiDayCalendar-header {
+.MuiTabs-flexContainer {
   display: flex !important;
-  align-items: center !important;
-  justify-content: space-between;
+  justify-content: space-between !important;
+  position: relative;
 }
 
-.select-date .MuiDayCalendar-weekContainer {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between;
+.MuiTabs-flexContainer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(135deg, rgba(91, 228, 155, 0.2), rgba(0, 167, 111, 0.2));
 }
 
-.select-date .MuiButtonBase-root {
-  padding: 0px;
-  margin: 0px;
+.tabs-menu {
+  padding-bottom: 35px;
 }
 
-.select-date .MuiPickersArrowSwitcher-spacer {
-  display: none;
-}
-
-// .select-date {
-//   padding: 15px 30px 15px 30px;
-// }
-
-.select-date .MuiPickersFadeTransitionGroup-root {
-  font-size: 22px;
+.dashbord .MuiButtonBase-root {
+  color: #00a76f !important;
+  font-size: 14px;
   font-weight: 600;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.select-date .MuiSvgIcon-root {
-  color: #000 !important;
-  /* font-weight: bold !important; */
-  font-size: 21px;
+.dashbord .MuiTabs-indicator {
+  background: #00a76f !important;
 }
 
-.select-date .MuiTypography-root {
-  color: #000;
-  font-size: 15px;
-  font-weight: 700;
+.account-box {
+  padding: 0 50px 0 50px;
 }
 
-.select-date .css-1jsy6pn-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
-  //   border: 1px solid rgba(0, 0, 0, 0.6);
-  border: 1px solid #00a872;
+.account-box .MuiGrid-root {
+  padding-left: 0px !important;
 }
 
-.select-date .css-qa7bje-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
-  color: #fff !important;
-  background-color: #00a872 !important;
-  font-weight: 500;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+.links {
+  width: 100%;
+  margin-top: 10px;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
-.select-date .css-1jsy6pn-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
-.select-date .css-1beqopj-MuiPickersYear-yearButton.Mui-selected {
-  color: #fff !important;
-  background-color: #00a872 !important;
+.login-button {
+  width: 100%;
 }
 
-.select-date .MuiButtonBase-root {
-  color: #000;
-  font-size: 15px;
-  font-weight: 700;
-}
-.select-date .MuiYearCalendar-root {
+.login-button .MuiButtonBase-root {
+  margin: 15px 0px !important;
   width: 100% !important;
-  height: 240px !important;
+  padding: 10px !important;
+  background-color: #00a872 !important;
+  color: #fff !important;
 }
 
-.select-date .MuiDialogActions-root {
-  display: none;
-}
-
-.select-date .MuiPickersSlideTransition-root {
-  min-height: 195px;
+.forget-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
 }
