@@ -211,3 +211,28 @@
 .step-back-btn-inactive {
   opacity: 0 !important;
 }
+
+.tab-title {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.sidebar-active {
+  left: 0% !important;
+  transition: 0.5s;
+}
+
+.hamburger-icon {
+  display: none !important;
+}
+
+@media only screen and (max-width: 1199px) {
+  .grid-top {
+    padding-top: 0px !important;
+  }
+
+  .hamburger-icon {
+    display: block !important;
+  }
+}

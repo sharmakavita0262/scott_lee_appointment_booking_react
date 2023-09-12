@@ -1,9 +1,10 @@
 import React from 'react';
 import { Box, Grid, Typography, CardMedia } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import './view.section.scss';
 import PropTypes from 'prop-types';
 
-export default function FourView({ setStepFormData }) {
+export default function FourView({ setStepFormData, handleMenuOpen }) {
   const ServiceData = [
     { service_name: 'Provider 1', sub: 'sub- abc' },
     { service_name: 'Provider 2', sub: 'sub- abc' },
@@ -17,6 +18,10 @@ export default function FourView({ setStepFormData }) {
     setStepFormData(item);
     console.log('selected service item', item);
   };
+  const handleMenu = () => {
+    console.log('click on hello');
+    handleMenuOpen((prev) => !prev);
+  };
   return (
     <div className="home">
       <Box sx={{}}>
@@ -24,7 +29,15 @@ export default function FourView({ setStepFormData }) {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">Service Provider</Typography>
+                <Typography variant="h2">
+                  {' '}
+                  <MenuIcon
+                    className="hamburger-icon"
+                    onClick={handleMenu}
+                    sx={{ cursor: 'pointer' }}
+                  />
+                  Service Provider
+                </Typography>
               </Box>
             </Box>
             <Box className="dashbord">
@@ -62,4 +75,5 @@ export default function FourView({ setStepFormData }) {
 }
 FourView.propTypes = {
   setStepFormData: PropTypes.func,
+  handleMenuOpen: PropTypes.func,
 };

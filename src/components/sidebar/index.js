@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import CloseIcon from '@mui/icons-material/Close';
+import './sidebar.component.scss';
 
 import { Box, Typography, MobileStepper } from '@mui/material';
 
 function Sidebar(props) {
-  const { step, content } = props;
-  console.log('step', step);
+  const { step, content, menuOpen, handleMenuOpen } = props;
+
+  console.log('open', step, menuOpen);
 
   return (
     <div>
-      <Box className="sidebar">
+      <Box className={menuOpen ? 'sidebar sidebar-active' : 'sidebar'}>
         <Box className="progressBar">
           <MobileStepper
             className="progressBar-line"
@@ -44,13 +47,22 @@ function Sidebar(props) {
             Call (111) 123-4567 for help
           </Typography>
         </Box>
+        <Box className="Close-icon">
+          <CloseIcon
+            onClick={() => {
+              handleMenuOpen(!menuOpen);
+            }}
+          />
+        </Box>
       </Box>
     </div>
   );
 }
 Sidebar.propTypes = {
   step: PropTypes.number.isRequired,
-  content: PropTypes.array.isRequired,
+  content: PropTypes.object.isRequired,
+  menuOpen: PropTypes.bool,
+  handleMenuOpen: PropTypes.func,
 };
 
 export default Sidebar;

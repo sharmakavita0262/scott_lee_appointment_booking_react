@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+
 import { Box, Grid, Typography } from '@mui/material';
 import './view.section.scss';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet-async';
 
-export default function OneView({ setStepFormData, formValue }) {
+export default function OneView({ setStepFormData, formValue, handleMenuOpen }) {
   const ServiceData = [
     { service_Category: 'Haircut' },
     { service_Category: 'Color' },
@@ -14,6 +16,10 @@ export default function OneView({ setStepFormData, formValue }) {
   const selectService = (item) => {
     setStepFormData(item);
     console.log('selected service item', item);
+  };
+  const handleMenu = () => {
+    console.log('click on hello');
+    handleMenuOpen((prev) => !prev);
   };
   return (
     <div className="home">
@@ -25,7 +31,14 @@ export default function OneView({ setStepFormData, formValue }) {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">Service Section</Typography>
+                <Typography className="tab-title" variant="h2">
+                  <MenuIcon
+                    className="hamburger-icon"
+                    onClick={handleMenu}
+                    sx={{ cursor: 'pointer' }}
+                  />
+                  Service Section
+                </Typography>
               </Box>
             </Box>
             <Box className="dashbord">
@@ -69,5 +82,6 @@ export default function OneView({ setStepFormData, formValue }) {
 }
 OneView.propTypes = {
   setStepFormData: PropTypes.func,
+  handleMenuOpen: PropTypes.func,
   formValue: PropTypes.string,
 };

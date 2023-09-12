@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { Box, Tabs, Tab, Grid, Typography, TextField, Button } from '@mui/material';
+import PropTypes from 'prop-types';
+import MenuIcon from '@mui/icons-material/Menu';
+
 import './seven.section.scss';
 import { Link } from 'react-router-dom';
 
-export default function SevenView() {
+export default function SevenView({ handleMenuOpen, setStepFormData }) {
   const [selectedTab, setSelectedTab] = useState('one');
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
+  const handleMenu = () => {
+    console.log('click on hello');
+    handleMenuOpen((prev) => !prev);
+  };
+
   return (
     <div className="home">
       <Box>
@@ -15,7 +23,14 @@ export default function SevenView() {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">Customer Information</Typography>
+                <Typography variant="h2">
+                  <MenuIcon
+                    className="hamburger-icon"
+                    onClick={handleMenu}
+                    sx={{ cursor: 'pointer' }}
+                  />
+                  Customer Information
+                </Typography>
               </Box>
             </Box>
 
@@ -132,3 +147,7 @@ export default function SevenView() {
     </div>
   );
 }
+SevenView.propTypes = {
+  setStepFormData: PropTypes.func,
+  handleMenuOpen: PropTypes.func,
+};

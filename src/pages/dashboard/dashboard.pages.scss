@@ -52,6 +52,12 @@
   }
 }
 
+@media only screen and (max-width: 1199px) {
+  .grid-top {
+    padding-top: 0px !important;
+  }
+}
+
 // .step-back-btn-inactive {
 //   opacity: 0 !important;
 //   pointer-events: none !important;

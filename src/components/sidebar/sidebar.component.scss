@@ -1,0 +1,24 @@
+@media only screen and (max-width: 1199px) {
+  .sidebar {
+    position: absolute !important;
+    top: 0 !important;
+    left: -160% !important;
+    transition: 0.5s;
+  }
+  .Close-icon {
+    display: block !important;
+  }
+}
+
+.sidebar-active {
+  left: 0% !important;
+  transition: 0.5s;
+}
+
+.Close-icon {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  color: #00a889;
+  display: none;
+}

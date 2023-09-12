@@ -1,9 +1,10 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import './view.section.scss';
 import PropTypes from 'prop-types';
 
-export default function TowView({ setStepFormData, formValue }) {
+export default function TowView({ setStepFormData, formValue, handleMenuOpen }) {
   const ServiceData = [
     { service_name: 'Haircut', sub: 'sub- abc' },
     { service_name: 'Color', sub: 'sub- abc' },
@@ -13,18 +14,41 @@ export default function TowView({ setStepFormData, formValue }) {
     setStepFormData(item);
     console.log('selected service item', item);
   };
+  const handleMenu = () => {
+    console.log('click on hello');
+    handleMenuOpen((prev) => !prev);
+  };
 
   return (
     <div className="home">
       <Box>
         <Grid container spacing={3} className="box">
           <Grid xs={12} md={9} lg={9} className="service-card">
+            {/* <Box className="heading">
+              <Typography className="tab-title" variant="h2">
+                <MenuIcon
+                  className="hamburger-icon"
+                  onClick={handleMenu}
+                  sx={{ cursor: 'pointer' }}
+                />
+                Service Section
+              </Typography>
+            </Box> */}
+
             <Box className="header">
               <Box className="heading Service-section">
-                <Typography variant="h2">Service Section</Typography>
+                <Typography variant="h2">
+                  <MenuIcon
+                    className="hamburger-icon"
+                    onClick={handleMenu}
+                    sx={{ cursor: 'pointer' }}
+                  />
+                  Service Section
+                </Typography>
                 <Typography variant="p">CATEGORY</Typography>
               </Box>
             </Box>
+
             <Box className="dashbord">
               <Box className="service_box">
                 {ServiceData &&
@@ -60,5 +84,6 @@ export default function TowView({ setStepFormData, formValue }) {
 }
 TowView.propTypes = {
   setStepFormData: PropTypes.func,
+  handleMenuOpen: PropTypes.func,
   formValue: PropTypes.string,
 };

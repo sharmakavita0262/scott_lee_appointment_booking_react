@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import PropTypes from 'prop-types';
+
 import './view.section.scss';
 import dayjs from 'dayjs';
 import CustomDatePicker from 'src/components/CustomDatePicker';
 
-export default function FiveView() {
+export default function FiveView({ handleMenuOpen, setStepFormData }) {
   const [newDate, setNewDate] = useState('');
   const handleDateChange = (e) => {
     console.log('data===>', e);
     setNewDate(e);
+  };
+  const handleMenu = () => {
+    console.log('click on hello');
+    handleMenuOpen((prev) => !prev);
   };
   console.log('newDate', typeof newDate, newDate, !newDate);
   return (
@@ -18,7 +25,15 @@ export default function FiveView() {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">Date & Time Selection</Typography>
+                <Typography variant="h2">
+                  {' '}
+                  <MenuIcon
+                    className="hamburger-icon"
+                    onClick={handleMenu}
+                    sx={{ cursor: 'pointer' }}
+                  />
+                  Date & Time Selection
+                </Typography>
               </Box>
             </Box>
             <Box className={!newDate ? 'main-one' : 'select-date'}>
@@ -75,3 +90,7 @@ export default function FiveView() {
     </div>
   );
 }
+FiveView.propTypes = {
+  setStepFormData: PropTypes.func,
+  handleMenuOpen: PropTypes.func,
+};

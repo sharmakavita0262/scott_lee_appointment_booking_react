@@ -14,13 +14,19 @@ import {
   Button,
   Alert,
 } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import PropTypes from 'prop-types';
 import './eight.section.scss';
 import { Link } from 'react-router-dom';
 
-export default function EightView() {
+export default function EightView({ handleMenuOpen, setStepFormData }) {
   const [selectedTab, setSelectedTab] = useState('one');
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
+  };
+  const handleMenu = () => {
+    console.log('click on hello');
+    handleMenuOpen((prev) => !prev);
   };
   return (
     <div className="home">
@@ -29,7 +35,15 @@ export default function EightView() {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">Verify Booking Details</Typography>
+                <Typography variant="h2">
+                  {' '}
+                  <MenuIcon
+                    className="hamburger-icon"
+                    onClick={handleMenu}
+                    sx={{ cursor: 'pointer' }}
+                  />
+                  Verify Booking Details
+                </Typography>
               </Box>
             </Box>
 
@@ -86,3 +100,7 @@ export default function EightView() {
     </div>
   );
 }
+EightView.propTypes = {
+  setStepFormData: PropTypes.func,
+  handleMenuOpen: PropTypes.func,
+};

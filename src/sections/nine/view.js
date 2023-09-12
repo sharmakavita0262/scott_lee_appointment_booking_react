@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { Box, Tabs, Tab, Grid, Typography, TextField, Button } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import PropTypes from 'prop-types';
 import './nine.section.scss';
 import { Link } from 'react-router-dom';
 
-export default function NineView() {
+export default function NineView({ handleMenuOpen, setStepFormData }) {
   const [selectedTab, setSelectedTab] = useState('one');
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
+  };
+  const handleMenu = () => {
+    console.log('click on hello');
+    handleMenuOpen((prev) => !prev);
   };
   return (
     <div className="home">
@@ -15,7 +21,15 @@ export default function NineView() {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">Appointment Confirmation</Typography>
+                <Typography variant="h2">
+                  {' '}
+                  <MenuIcon
+                    className="hamburger-icon"
+                    onClick={handleMenu}
+                    sx={{ cursor: 'pointer' }}
+                  />
+                  Appointment Confirmation
+                </Typography>
               </Box>
             </Box>
             <Box className="dashbord">
@@ -83,3 +97,7 @@ export default function NineView() {
     </div>
   );
 }
+NineView.propTypes = {
+  setStepFormData: PropTypes.func,
+  handleMenuOpen: PropTypes.func,
+};

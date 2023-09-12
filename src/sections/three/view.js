@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Grid, Typography, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import './view.section.scss';
+import MenuIcon from '@mui/icons-material/Menu';
 import PropTypes from 'prop-types';
 
-export default function ThreeView({ setStepFormData }) {
+export default function ThreeView({ setStepFormData, handleMenuOpen }) {
   const ServiceData = [
     { service_Category: 'Haircut' },
     { service_Category: 'Color' },
@@ -15,6 +16,10 @@ export default function ThreeView({ setStepFormData }) {
     setSelectItem(item.target.value);
     console.log('selectmenu item', item.target.value, index, selectItem);
   };
+  const handleMenu = () => {
+    console.log('click on hello');
+    handleMenuOpen((prev) => !prev);
+  };
   return (
     <div className="home">
       <Box>
@@ -22,7 +27,15 @@ export default function ThreeView({ setStepFormData }) {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">Preferences</Typography>
+                <Typography variant="h2">
+                  {' '}
+                  <MenuIcon
+                    className="hamburger-icon"
+                    onClick={handleMenu}
+                    sx={{ cursor: 'pointer' }}
+                  />
+                  Preferences
+                </Typography>
               </Box>
             </Box>
             <Box className="dashbord">
@@ -147,4 +160,5 @@ export default function ThreeView({ setStepFormData }) {
 }
 ThreeView.propTypes = {
   setStepFormData: PropTypes.func,
+  handleMenuOpen: PropTypes.func,
 };

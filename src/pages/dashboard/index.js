@@ -25,8 +25,12 @@ import NineView from '../../sections/nine/view';
 import EightView from '../../sections/eight/view';
 
 function Dashboard() {
-  const [activeStep, setActiveStep] = React.useState(1);
+  const [activeStep, setActiveStep] = React.useState(6);
   const [formValue, setFormValue] = React.useState();
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const handleMenuOpen = (value) => {
+    setMenuOpen(value);
+  };
   const setStepFormData = (value) => {
     setFormValue((prev) => ({ ...prev, ...value }));
   };
@@ -72,23 +76,77 @@ function Dashboard() {
   function renderStepContent(step) {
     switch (step) {
       case 1:
-        return <OneView setStepFormData={setStepFormData} formValue={formValue} />;
+        return (
+          <OneView
+            handleMenuOpen={handleMenuOpen}
+            setStepFormData={setStepFormData}
+            formValue={formValue}
+          />
+        );
       case 2:
-        return <TowView setStepFormData={setStepFormData} formValue={formValue} />;
+        return (
+          <TowView
+            handleMenuOpen={handleMenuOpen}
+            setStepFormData={setStepFormData}
+            formValue={formValue}
+          />
+        );
       case 3:
-        return <ThreeView setStepFormData={setStepFormData} formValue={formValue} />;
+        return (
+          <ThreeView
+            handleMenuOpen={handleMenuOpen}
+            setStepFormData={setStepFormData}
+            formValue={formValue}
+          />
+        );
       case 4:
-        return <FourView setStepFormData={setStepFormData} formValue={formValue} />;
+        return (
+          <FourView
+            handleMenuOpen={handleMenuOpen}
+            setStepFormData={setStepFormData}
+            formValue={formValue}
+          />
+        );
       case 5:
-        return <FiveView setStepFormData={setStepFormData} formValue={formValue} />;
+        return (
+          <FiveView
+            handleMenuOpen={handleMenuOpen}
+            setStepFormData={setStepFormData}
+            formValue={formValue}
+          />
+        );
       case 6:
-        return <SixView setStepFormData={setStepFormData} formValue={formValue} />;
+        return (
+          <SixView
+            handleMenuOpen={handleMenuOpen}
+            setStepFormData={setStepFormData}
+            formValue={formValue}
+          />
+        );
       case 7:
-        return <SevenView setStepFormData={setStepFormData} formValue={formValue} />;
+        return (
+          <SevenView
+            handleMenuOpen={handleMenuOpen}
+            setStepFormData={setStepFormData}
+            formValue={formValue}
+          />
+        );
       case 8:
-        return <EightView setStepFormData={setStepFormData} formValue={formValue} />;
+        return (
+          <EightView
+            handleMenuOpen={handleMenuOpen}
+            setStepFormData={setStepFormData}
+            formValue={formValue}
+          />
+        );
       case 9:
-        return <NineView setStepFormData={setStepFormData} formValue={formValue} />;
+        return (
+          <NineView
+            handleMenuOpen={handleMenuOpen}
+            setStepFormData={setStepFormData}
+            formValue={formValue}
+          />
+        );
 
       default:
         return <div>Not Found</div>;
@@ -108,16 +166,21 @@ function Dashboard() {
         }}
       >
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6} lg={3}>
-            <Sidebar step={activeStep} content={headerData[activeStep - 1]} />
+          <Grid item xs={12} lg={3}>
+            <Sidebar
+              handleMenuOpen={handleMenuOpen}
+              menuOpen={menuOpen}
+              step={activeStep}
+              content={headerData[activeStep - 1]}
+            />
           </Grid>
           {activeStep <= 2 || activeStep === 9 ? (
-            <Grid item xs={12} md={6} lg={9}>
+            <Grid item xs={12} md={12} lg={9} className="grid-top">
               <Box sx={{ position: 'relative', height: '100vh' }}>
                 {renderStepContent(activeStep)}
                 <Box className="navigation-btn">
                   <Button
-                    className={activeStep === 1 && 'step-back-btn-inactive'}
+                    className={activeStep === 1 ? 'step-back-btn-inactive' : ''}
                     size="small step-back-btn"
                     onClick={handleBack}
                     disabled={activeStep === 1}
@@ -139,7 +202,7 @@ function Dashboard() {
             </Grid>
           ) : (
             <>
-              <Grid item xs={12} md={6} lg={6}>
+              <Grid item xs={12} md={12} lg={6} className="grid-top">
                 <Box sx={{ position: 'relative', height: '100vh' }}>
                   {renderStepContent(activeStep)}
                   <Box className="navigation-btn">
@@ -166,7 +229,7 @@ function Dashboard() {
                   </Box>
                 </Box>
               </Grid>
-              <Grid item xs={12} md={6} lg={3} className="summery-steps">
+              <Grid item xs={12} md={12} lg={3} className="summery-steps">
                 <SummaryCard heading={activeStep} />
               </Grid>
             </>
