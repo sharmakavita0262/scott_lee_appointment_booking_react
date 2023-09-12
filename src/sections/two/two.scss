@@ -40,3 +40,12 @@
   color: #0078ce;
   font-weight: 100;
 }
+
+@media only screen and (max-width: 575px) {
+  .category-section .dashbord {
+    padding: 0px 0px 0px 25px !important;
+  }
+  .category-section .dashbord .service_box {
+    margin: 0 !important;
+  }
+}

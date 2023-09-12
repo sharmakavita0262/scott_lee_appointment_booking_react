@@ -25,8 +25,10 @@ import NineView from '../../sections/nine/view';
 import EightView from '../../sections/eight/view';
 
 function Dashboard() {
-  const [activeStep, setActiveStep] = React.useState(6);
+  const [activeStep, setActiveStep] = React.useState(1);
   const [formValue, setFormValue] = React.useState();
+  const childRef = React.useRef(null);
+
   const [menuOpen, setMenuOpen] = React.useState(false);
   const handleMenuOpen = (value) => {
     setMenuOpen(value);
@@ -34,7 +36,7 @@ function Dashboard() {
   const setStepFormData = (value) => {
     setFormValue((prev) => ({ ...prev, ...value }));
   };
-  console.log('formValue setStepFormData=======>', formValue);
+  console.log('formValue setStepFormData=======>', activeStep);
 
   const headerData = [
     {
@@ -66,19 +68,25 @@ function Dashboard() {
     },
   ];
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+
+  const callChildFunction = () => {
+    console.log('called next click', childRef);
+    if (childRef.current) {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      childRef.current.submitForm();
+    }
+  };
+
   function renderStepContent(step) {
     switch (step) {
       case 1:
         return (
           <OneView
             handleMenuOpen={handleMenuOpen}
+            ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
           />
@@ -86,6 +94,7 @@ function Dashboard() {
       case 2:
         return (
           <TowView
+            ref={childRef}
             handleMenuOpen={handleMenuOpen}
             setStepFormData={setStepFormData}
             formValue={formValue}
@@ -95,6 +104,7 @@ function Dashboard() {
         return (
           <ThreeView
             handleMenuOpen={handleMenuOpen}
+            ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
           />
@@ -103,6 +113,7 @@ function Dashboard() {
         return (
           <FourView
             handleMenuOpen={handleMenuOpen}
+            ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
           />
@@ -111,6 +122,7 @@ function Dashboard() {
         return (
           <FiveView
             handleMenuOpen={handleMenuOpen}
+            ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
           />
@@ -119,6 +131,7 @@ function Dashboard() {
         return (
           <SixView
             handleMenuOpen={handleMenuOpen}
+            ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
           />
@@ -127,6 +140,7 @@ function Dashboard() {
         return (
           <SevenView
             handleMenuOpen={handleMenuOpen}
+            ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
           />
@@ -135,6 +149,7 @@ function Dashboard() {
         return (
           <EightView
             handleMenuOpen={handleMenuOpen}
+            ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
           />
@@ -143,6 +158,7 @@ function Dashboard() {
         return (
           <NineView
             handleMenuOpen={handleMenuOpen}
+            ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
           />
@@ -166,7 +182,7 @@ function Dashboard() {
         }}
       >
         <Grid container spacing={2}>
-          <Grid item xs={12} lg={3}>
+          <Grid item xs={12} md={3}>
             <Sidebar
               handleMenuOpen={handleMenuOpen}
               menuOpen={menuOpen}
@@ -180,7 +196,7 @@ function Dashboard() {
                 {renderStepContent(activeStep)}
                 <Box className="navigation-btn">
                   <Button
-                    className={activeStep === 1 ? 'step-back-btn-inactive' : ''}
+                    className={activeStep === 1 && 'step-back-btn-inactive'}
                     size="small step-back-btn"
                     onClick={handleBack}
                     disabled={activeStep === 1}
@@ -191,7 +207,8 @@ function Dashboard() {
 
                   <Button
                     size="small step-back-nxt"
-                    onClick={handleNext}
+                    type="submit"
+                    onClick={callChildFunction}
                     disabled={activeStep === 9}
                   >
                     Next
@@ -218,8 +235,9 @@ function Dashboard() {
                     )}
                     {activeStep < 9 && (
                       <Button
+                        type="submit"
                         size="small step-back-nxt"
-                        onClick={handleNext}
+                        onClick={callChildFunction}
                         disabled={activeStep === 9}
                       >
                         Next
@@ -230,7 +248,7 @@ function Dashboard() {
                 </Box>
               </Grid>
               <Grid item xs={12} md={12} lg={3} className="summery-steps">
-                <SummaryCard heading={activeStep} />
+                <SummaryCard activeStep={activeStep} />
               </Grid>
             </>
           )}

@@ -271,3 +271,55 @@
   font-weight: 600 !important;
   font-size: 14px !important;
 }
+
+@media only screen and (max-width: 1199px) {
+  .main-one {
+    padding: 15px 30px 15px 50px !important;
+  }
+  .select-date {
+    padding: 10px 20px 0px 43px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .slot-select p + p {
+    font-size: 12px;
+  }
+
+  .slot-pick {
+    font-size: 12px !important;
+  }
+
+  .slot-check-line {
+    width: 20%;
+  }
+
+  .slot-time {
+    gap: 15px;
+  }
+
+  .slot-select {
+    justify-content: space-evenly;
+  }
+
+  .slot-check-grid {
+    width: 260px !important;
+    margin: 0 auto !important;
+  }
+
+  .summery-header {
+    margin-top: 250px;
+  }
+
+  .main-one {
+    padding: 15px 17px 0px 30px !important;
+  }
+
+  .main-one .MuiDateCalendar-root {
+    width: 90% !important;
+    margin: 3px;
+  }
+}
+.time-slots {
+  cursor: pointer;
+}

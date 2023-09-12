@@ -1,0 +1,40 @@
+// .card-input {
+//   border: 0 !important;
+//   margin: 0 !important;
+//   padding: 0 !important;
+// }
+
+// .Preferences-card-input {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+// }
+
+// .service-card {
+//   height: 100vh;
+//   position: relative;
+// }
+
+@media only screen and (max-width: 575px) {
+  .preferences-section .dashbord {
+    padding: 10px 10px 0px 35px !important;
+  }
+
+  .preferences-section .product-service-card img {
+    height: 120px;
+    width: 120px;
+  }
+
+  .preferences-section .service_box {
+    margin: 0;
+  }
+
+  .preferences-section .dashbord .service_box .card {
+    padding: 0px !important;
+    border: 0 !important;
+  }
+
+  .preferences-section .dashbord .service_box {
+    margin: 0 !important;
+  }
+}

@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material';
 import './summaryCard.component.scss';
 
 function SummaryCard(props) {
-  const { heading } = props;
+  const { activeStep } = props;
   return (
     <div>
       <Box className="summery-header">
@@ -15,10 +15,12 @@ function SummaryCard(props) {
         </Box>
         <Box className="summery-card">
           <Typography className="summery-card-title">Selected Service</Typography>
-          <Box className="summery-time">
-            <Typography className="summery-time-date">Sep 24,2023</Typography>
-            <Typography className="summery-time-text">TIME ZONE</Typography>
-          </Box>
+          {activeStep === 3 && (
+            <Box className="summery-time">
+              <Typography className="summery-time-date">Sep 24,2023</Typography>
+              <Typography className="summery-time-text">TIME ZONE</Typography>
+            </Box>
+          )}
           <Typography className="summery-sub-title">YOUR PREFERENCES</Typography>
 
           <Box className="summery-selection-box">
@@ -75,6 +77,6 @@ function SummaryCard(props) {
   );
 }
 SummaryCard.propTypes = {
-  heading: PropTypes.number.isRequired,
+  activeStep: PropTypes.number.isRequired,
 };
 export default SummaryCard;

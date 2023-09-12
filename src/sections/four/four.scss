@@ -21,3 +21,18 @@
   margin-top: 10px;
   border-top: 1px solid silver;
 }
+
+.service-provied-section {
+  margin-top: 20px !important;
+}
+
+@media only screen and (max-width: 575px) {
+  .service-provied-section .dashbord {
+    padding: 10px 10px 0px 35px !important;
+  }
+
+  .service-provied-section .product-service-card img {
+    height: 120px;
+    width: 120px;
+  }
+}

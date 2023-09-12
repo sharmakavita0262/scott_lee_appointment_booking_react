@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { Box, Grid, Typography, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
-import './view.section.scss';
 import MenuIcon from '@mui/icons-material/Menu';
+
+import './three.scss';
 import PropTypes from 'prop-types';
 
-export default function ThreeView({ setStepFormData, handleMenuOpen }) {
+const ThreeView = forwardRef((props, ref) => {
+  const { setStepFormData, handleMenuOpen } = props;
   const ServiceData = [
     { service_Category: 'Haircut' },
     { service_Category: 'Color' },
@@ -16,6 +18,12 @@ export default function ThreeView({ setStepFormData, handleMenuOpen }) {
     setSelectItem(item.target.value);
     console.log('selectmenu item', item.target.value, index, selectItem);
   };
+  const submitForm = () => {
+    console.log('called next click submit three page');
+  };
+  useImperativeHandle(ref, () => ({
+    submitForm,
+  }));
   const handleMenu = () => {
     console.log('click on hello');
     handleMenuOpen((prev) => !prev);
@@ -27,7 +35,7 @@ export default function ThreeView({ setStepFormData, handleMenuOpen }) {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">
+                <Typography className="tab-title" variant="h2">
                   {' '}
                   <MenuIcon
                     className="hamburger-icon"
@@ -38,118 +46,42 @@ export default function ThreeView({ setStepFormData, handleMenuOpen }) {
                 </Typography>
               </Box>
             </Box>
-            <Box className="dashbord">
-              <Box className="service_box Preferences-card-input">
-                {ServiceData?.map((item, index) => (
-                  <Box className="card card-input">
-                    <FormControl fullWidth>
-                      <InputLabel id="demo-simple-select-label">{index}</InputLabel>
+            <Box className="preferences-section">
+              <Box className="dashbord">
+                <Box className="service_box Preferences-card-input">
+                  {ServiceData?.map((item, index) => (
+                    <Box className="card card-input">
+                      <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">{index}</InputLabel>
 
-                      <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={selectItem[index]}
-                        label="Age"
-                        onChange={(e) => {
-                          handleSelectChange(e, index);
-                        }}
-                      >
-                        <MenuItem value={item.service_Category}>{item.service_Category}</MenuItem>
-                        {/* {
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={selectItem[index]}
+                          label="Age"
+                          onChange={(e) => {
+                            handleSelectChange(e, index);
+                          }}
+                        >
+                          <MenuItem value={item.service_Category}>{item.service_Category}</MenuItem>
+                          {/* {
                             ServiceData?.map((item1) =>
                               <MenuItem value={item1?.service_Category}>{item1?.service_Category}</MenuItem>)} */}
-                      </Select>
-                      <Typography
-                        sx={{
-                          color: '#808080',
-                          fontSize: '13px',
-                          paddingLeft: '10px',
-                          paddingTop: '10px',
-                        }}
-                      >
-                        Helper Text / Hint
-                      </Typography>
-                    </FormControl>
-                  </Box>
-                ))}
-                {/* <Box className="card card-input">
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={10}
-                      label="Age"
-                    // onChange={handleChange}
-                    >
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                    <Typography
-                      sx={{
-                        color: '#808080',
-                        fontSize: '13px',
-                        paddingLeft: '10px',
-                        paddingTop: '10px',
-                      }}
-                    >
-                      Helper Text / Hint
-                    </Typography>
-                  </FormControl>
+                        </Select>
+                        <Typography
+                          sx={{
+                            color: '#808080',
+                            fontSize: '13px',
+                            paddingLeft: '10px',
+                            paddingTop: '10px',
+                          }}
+                        >
+                          Helper Text / Hint
+                        </Typography>
+                      </FormControl>
+                    </Box>
+                  ))}
                 </Box>
-                <Box className="card card-input">
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={10}
-                      label="Age"
-                    // onChange={handleChange}
-                    >
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                    <Typography
-                      sx={{
-                        color: '#808080',
-                        fontSize: '13px',
-                        paddingLeft: '10px',
-                        paddingTop: '10px',
-                      }}
-                    >
-                      Helper Text / Hint
-                    </Typography>
-                  </FormControl>
-                </Box>
-                <Box className="card card-input">
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={10}
-                      label="Age"
-                    // onChange={handleChange}
-                    >
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                    <Typography
-                      sx={{
-                        color: '#808080',
-                        fontSize: '13px',
-                        paddingLeft: '10px',
-                        paddingTop: '10px',
-                      }}
-                    >
-                      Helper Text / Hint
-                    </Typography>
-                  </FormControl>
-                </Box> */}
               </Box>
             </Box>
           </Grid>
@@ -157,7 +89,8 @@ export default function ThreeView({ setStepFormData, handleMenuOpen }) {
       </Box>
     </div>
   );
-}
+});
+export default ThreeView;
 ThreeView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,

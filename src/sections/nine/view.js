@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
-import { Box, Tabs, Tab, Grid, Typography, TextField, Button } from '@mui/material';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import { Box, Grid, Typography, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import PropTypes from 'prop-types';
-import './nine.section.scss';
-import { Link } from 'react-router-dom';
 
-export default function NineView({ handleMenuOpen, setStepFormData }) {
+import './nine.scss';
+import PropTypes from 'prop-types';
+
+const NineView = forwardRef((props, ref) => {
+  const { setStepFormData, handleMenuOpen } = props;
   const [selectedTab, setSelectedTab] = useState('one');
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
+
+  const submitForm = () => {
+    console.log('called next click submit nine page');
+  };
+  useImperativeHandle(ref, () => ({
+    submitForm,
+  }));
   const handleMenu = () => {
     console.log('click on hello');
     handleMenuOpen((prev) => !prev);
@@ -21,7 +29,7 @@ export default function NineView({ handleMenuOpen, setStepFormData }) {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">
+                <Typography className="tab-title" variant="h2">
                   {' '}
                   <MenuIcon
                     className="hamburger-icon"
@@ -96,8 +104,9 @@ export default function NineView({ handleMenuOpen, setStepFormData }) {
       </Box>
     </div>
   );
-}
+});
 NineView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
 };
+export default NineView;

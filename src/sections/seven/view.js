@@ -1,21 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
+
 import { Box, Tabs, Tab, Grid, Typography, TextField, Button } from '@mui/material';
-import PropTypes from 'prop-types';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import './seven.section.scss';
+import PropTypes from 'prop-types';
+
+import './seven.scss';
 import { Link } from 'react-router-dom';
 
-export default function SevenView({ handleMenuOpen, setStepFormData }) {
+const SevenView = forwardRef((props, ref) => {
+  const { setStepFormData, handleMenuOpen } = props;
   const [selectedTab, setSelectedTab] = useState('one');
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
+  const submitForm = () => {
+    console.log('called next click submit seven page');
+  };
+  useImperativeHandle(ref, () => ({
+    submitForm,
+  }));
   const handleMenu = () => {
     console.log('click on hello');
     handleMenuOpen((prev) => !prev);
   };
-
   return (
     <div className="home">
       <Box>
@@ -23,7 +31,7 @@ export default function SevenView({ handleMenuOpen, setStepFormData }) {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">
+                <Typography className="tab-title" variant="h2">
                   <MenuIcon
                     className="hamburger-icon"
                     onClick={handleMenu}
@@ -146,8 +154,9 @@ export default function SevenView({ handleMenuOpen, setStepFormData }) {
       </Box>
     </div>
   );
-}
+});
 SevenView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
 };
+export default SevenView;

@@ -1,33 +1,21 @@
-import React, { useState } from 'react';
-import {
-  Box,
-  Tabs,
-  Tab,
-  Grid,
-  Paper,
-  Typography,
-  MenuItem,
-  Select,
-  InputLabel,
-  FormControl,
-  TextField,
-  Button,
-  Alert,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import { Box, Grid, Typography, Alert } from '@mui/material';
+import './eight.scss';
 import PropTypes from 'prop-types';
-import './eight.section.scss';
-import { Link } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
 
-export default function EightView({ handleMenuOpen, setStepFormData }) {
-  const [selectedTab, setSelectedTab] = useState('one');
-  const handleTabChange = (event, newValue) => {
-    setSelectedTab(newValue);
-  };
+const EightView = forwardRef((props, ref) => {
+  const { setStepFormData, handleMenuOpen } = props;
   const handleMenu = () => {
     console.log('click on hello');
     handleMenuOpen((prev) => !prev);
   };
+  const submitForm = () => {
+    console.log('called next click submit eight page');
+  };
+  useImperativeHandle(ref, () => ({
+    submitForm,
+  }));
   return (
     <div className="home">
       <Box>
@@ -35,7 +23,7 @@ export default function EightView({ handleMenuOpen, setStepFormData }) {
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
-                <Typography variant="h2">
+                <Typography className="tab-title" variant="h2">
                   {' '}
                   <MenuIcon
                     className="hamburger-icon"
@@ -99,8 +87,9 @@ export default function EightView({ handleMenuOpen, setStepFormData }) {
       </Box>
     </div>
   );
-}
+});
 EightView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
 };
+export default EightView;
