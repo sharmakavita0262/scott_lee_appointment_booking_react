@@ -1,5 +1,7 @@
 import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react';
+import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react';
 import { Box, Tabs, Tab, Grid, Typography, TextField, Button } from '@mui/material';
+import { Helmet } from 'react-helmet-async';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Helmet } from 'react-helmet-async';
 import PropTypes from 'prop-types';
@@ -12,6 +14,7 @@ const SixView = forwardRef((props, ref) => {
   const { setStepFormData, handleMenuOpen, handleNext } = props;
   const formRef = useRef();
 
+  const formRef = useRef();
   const [formKey, setFormKey] = useState(0); // Add this key state
 
   const initialRegValues = {
@@ -55,7 +58,6 @@ const SixView = forwardRef((props, ref) => {
     submitForm,
   }));
   const handleMenu = () => {
-    console.log('click on hello');
     handleMenuOpen((prev) => !prev);
   };
   return (
@@ -69,7 +71,6 @@ const SixView = forwardRef((props, ref) => {
             <Box className="header">
               <Box className="heading">
                 <Typography className="tab-title" variant="h2">
-                  {' '}
                   <MenuIcon
                     className="hamburger-icon"
                     onClick={handleMenu}
@@ -268,6 +269,7 @@ const SixView = forwardRef((props, ref) => {
 });
 SixView.propTypes = {
   setStepFormData: PropTypes.func,
+  handleNext: PropTypes.func,
   handleMenuOpen: PropTypes.func,
   handleNext: PropTypes.func,
 };

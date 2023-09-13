@@ -25,7 +25,7 @@ function Dashboard() {
   const setStepFormData = (value) => {
     setFormValue((prev) => ({ ...prev, ...value }));
   };
-  console.log('formValue setStepFormData=======>', activeStep);
+  console.log('formValue of index page=======>', formValue);
 
   const headerData = [
     {
@@ -75,6 +75,7 @@ function Dashboard() {
       case 1:
         return (
           <OneView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -85,6 +86,7 @@ function Dashboard() {
       case 2:
         return (
           <TowView
+            handleNext={handleNext}
             ref={childRef}
             handleMenuOpen={handleMenuOpen}
             setStepFormData={setStepFormData}
@@ -95,6 +97,7 @@ function Dashboard() {
       case 3:
         return (
           <ThreeView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -105,6 +108,7 @@ function Dashboard() {
       case 4:
         return (
           <FourView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -115,6 +119,7 @@ function Dashboard() {
       case 5:
         return (
           <FiveView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -125,6 +130,7 @@ function Dashboard() {
       case 6:
         return (
           <SixView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -135,6 +141,7 @@ function Dashboard() {
       case 7:
         return (
           <SevenView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -145,6 +152,7 @@ function Dashboard() {
       case 8:
         return (
           <EightView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -155,6 +163,7 @@ function Dashboard() {
       case 9:
         return (
           <NineView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}

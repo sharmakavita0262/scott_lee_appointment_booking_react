@@ -15,6 +15,7 @@ const OneView = forwardRef((props, ref) => {
     { s_id: 3, service_Category: 'HairSpa' },
   ];
   console.log('formValue of service page ', formValue);
+  console.log('formValue of service page ', formValue);
 
   const selectService = (item) => {
     setStepFormData(item);

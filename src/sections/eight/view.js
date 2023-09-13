@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet-async';
 import MenuIcon from '@mui/icons-material/Menu';
 import './eight.scss';
 import PropTypes from 'prop-types';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Helmet } from 'react-helmet-async';
 
 const EightView = forwardRef((props, ref) => {
   const { setStepFormData, handleMenuOpen, handleNext } = props;

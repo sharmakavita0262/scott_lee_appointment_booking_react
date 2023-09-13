@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 
 import './seven.scss';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const SevenView = forwardRef((props, ref) => {
   const { setStepFormData, handleMenuOpen, handleNext } = props;
