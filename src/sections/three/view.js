@@ -4,9 +4,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import './three.scss';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet-async';
 
 const ThreeView = forwardRef((props, ref) => {
-  const { setStepFormData, handleMenuOpen } = props;
+  const { setStepFormData, handleMenuOpen, handleNext, formValue } = props;
+  console.log('formValue', formValue)
   const ServiceData = [
     { service_Category: 'Haircut' },
     { service_Category: 'Color' },
@@ -19,6 +21,7 @@ const ThreeView = forwardRef((props, ref) => {
     console.log('selectmenu item', item.target.value, index, selectItem);
   };
   const submitForm = () => {
+    handleNext()
     console.log('called next click submit three page');
   };
   useImperativeHandle(ref, () => ({
@@ -30,6 +33,9 @@ const ThreeView = forwardRef((props, ref) => {
   };
   return (
     <div className="home">
+      <Helmet>
+        <title> Dashboard: Service</title>
+      </Helmet>
       <Box>
         <Grid container spacing={3} className="box">
           <Grid xs={12} md={9} lg={9} className="service-card">
@@ -94,4 +100,6 @@ export default ThreeView;
 ThreeView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
+  handleNext: PropTypes.func,
+  formValue: PropTypes.string,
 };

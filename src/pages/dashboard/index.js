@@ -4,23 +4,14 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Helmet } from 'react-helmet-async';
 import Sidebar from '../../components/sidebar';
-import Page from './one';
-import Page2 from './two';
-import Page3 from './three';
-import Page4 from './four';
-import Page5 from './five';
 import SummaryCard from '../../components/summaryCard';
-import Page6 from './six';
-import Page7 from './seven';
-import Page9 from './nine';
-import Page8 from './eight';
 import OneView from '../../sections/one/view';
 import TowView from '../../sections/two/view';
 import ThreeView from '../../sections/three/view';
 import FourView from '../../sections/four/view';
 import FiveView from '../../sections/five/view';
 import SevenView from '../../sections/seven/view';
-import SixView from '../../sections/six/view';
+import SixView from '../../sections/six/view'
 import NineView from '../../sections/nine/view';
 import EightView from '../../sections/eight/view';
 
@@ -36,7 +27,7 @@ function Dashboard() {
   const setStepFormData = (value) => {
     setFormValue((prev) => ({ ...prev, ...value }));
   };
-  console.log('formValue setStepFormData=======>', activeStep);
+  console.log('formValue of index page=======>', formValue);
 
   const headerData = [
     {
@@ -71,11 +62,13 @@ function Dashboard() {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
 
   const callChildFunction = () => {
     console.log('called next click', childRef);
     if (childRef.current) {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
       childRef.current.submitForm();
     }
   };
@@ -85,6 +78,7 @@ function Dashboard() {
       case 1:
         return (
           <OneView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -94,6 +88,7 @@ function Dashboard() {
       case 2:
         return (
           <TowView
+            handleNext={handleNext}
             ref={childRef}
             handleMenuOpen={handleMenuOpen}
             setStepFormData={setStepFormData}
@@ -103,6 +98,8 @@ function Dashboard() {
       case 3:
         return (
           <ThreeView
+            handleNext={handleNext}
+
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -112,6 +109,7 @@ function Dashboard() {
       case 4:
         return (
           <FourView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -121,6 +119,7 @@ function Dashboard() {
       case 5:
         return (
           <FiveView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -130,6 +129,7 @@ function Dashboard() {
       case 6:
         return (
           <SixView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -139,6 +139,7 @@ function Dashboard() {
       case 7:
         return (
           <SevenView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -148,6 +149,7 @@ function Dashboard() {
       case 8:
         return (
           <EightView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -157,6 +159,7 @@ function Dashboard() {
       case 9:
         return (
           <NineView
+            handleNext={handleNext}
             handleMenuOpen={handleMenuOpen}
             ref={childRef}
             setStepFormData={setStepFormData}
@@ -207,7 +210,6 @@ function Dashboard() {
 
                   <Button
                     size="small step-back-nxt"
-                    type="submit"
                     onClick={callChildFunction}
                     disabled={activeStep === 9}
                   >
@@ -235,7 +237,6 @@ function Dashboard() {
                     )}
                     {activeStep < 9 && (
                       <Button
-                        type="submit"
                         size="small step-back-nxt"
                         onClick={callChildFunction}
                         disabled={activeStep === 9}

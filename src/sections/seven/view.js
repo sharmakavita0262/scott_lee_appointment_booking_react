@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 import './seven.scss';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const SevenView = forwardRef((props, ref) => {
   const { setStepFormData, handleMenuOpen } = props;
@@ -26,6 +27,9 @@ const SevenView = forwardRef((props, ref) => {
   };
   return (
     <div className="home">
+       <Helmet>
+        <title> Dashboard: Service</title>
+      </Helmet>
       <Box>
         <Grid container spacing={3} className="box">
           <Grid xs={12} md={9} lg={9} className="service-card">

@@ -1,31 +1,40 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import { Box, Grid, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import './one.scss';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet-async';
 
+
+
 const OneView = forwardRef((props, ref) => {
-  const { setStepFormData, handleMenuOpen, formValue } = props;
+  const { setStepFormData, handleMenuOpen, formValue, handleNext } = props;
+  const [Error, setError] = useState(false)
+  const [service, setService] = useState(formValue?.service_Category ?? null)
   const ServiceData = [
-    { service_Category: 'Haircut' },
-    { service_Category: 'Color' },
-    { service_Category: 'HairSpa' },
+    { id: 1, service_Category: 'Haircut' },
+    { id: 2, service_Category: 'Color' },
+    { id: 3, service_Category: 'HairSpa' },
   ];
-  console.log('setStepFormData', setStepFormData, formValue);
+  console.log('formValue of service page ', formValue);
 
   const selectService = (item) => {
-    setStepFormData(item);
-    console.log('selected service item', item);
+    setStepFormData(item)
+    setService(item)
+    setError(false)
   };
   const submitForm = () => {
-    console.log('called next click submit one page');
+    if (service === null) {
+      setError(true)
+    } else {
+      setError(false)
+      handleNext()
+    }
   };
   useImperativeHandle(ref, () => ({
     submitForm,
   }));
   const handleMenu = () => {
-    console.log('click on hello');
     handleMenuOpen((prev) => !prev);
   };
   return (
@@ -81,6 +90,10 @@ const OneView = forwardRef((props, ref) => {
                       </>
                     ))}
                 </Box>
+
+                <Box className="error-message">
+                  <Typography sx={{ fontSize: "18px" }}>{Error && "Please select service"}</Typography>
+                </Box>
               </Box>
             </Box>
           </Grid>
@@ -92,6 +105,7 @@ const OneView = forwardRef((props, ref) => {
 OneView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
+  handleNext: PropTypes.func,
   formValue: PropTypes.string,
 };
 export default OneView;

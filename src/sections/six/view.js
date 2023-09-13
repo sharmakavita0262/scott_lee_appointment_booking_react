@@ -1,17 +1,17 @@
-import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react';
 import { Box, Tabs, Tab, Grid, Typography, TextField, Button } from '@mui/material';
+import { Helmet } from 'react-helmet-async';
 import MenuIcon from '@mui/icons-material/Menu';
-
 import PropTypes from 'prop-types';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import './six.scss';
 import { Link } from 'react-router-dom';
 import { Form, Formik, ErrorMessage } from 'formik';
 import { RegisterValidator, LoginValidator } from 'src/components/validators/validationSchema';
 
 const SixView = forwardRef((props, ref) => {
-  const { setStepFormData, handleMenuOpen } = props;
+  const { setStepFormData, handleMenuOpen, handleNext } = props;
 
+  const formRef = useRef();
   const [formKey, setFormKey] = useState(0); // Add this key state
 
   const initialRegValues = {
@@ -30,38 +30,46 @@ const SixView = forwardRef((props, ref) => {
     setSelectedTab(newValue);
     setFormKey((prevKey) => prevKey + 1);
   };
-  const handleLogin = (values) => {
-    console.log('values called login time====>', values);
-  };
-  const handleRegister = (values) => {
-    console.log('values called register time====>', values);
-  };
+
   const submitForm = () => {
-    if (selectedTab === 'one') {
-      console.log('called register');
-      handleRegister();
-    } else {
-      console.log('called login');
-      handleLogin();
+    if (formRef.current) {
+      formRef.current.handleSubmit();
+      handleFormikSubmit(formRef.current.values, formRef.current.errors)
     }
-    console.log('called next click submit six page');
   };
+
+  const handleFormikSubmit = (values, errors) => {
+    const a = Object.values(values).every(value => value !== "")
+    const b = Object.values(errors).every(value => value === "")
+    if (a && b) {
+      if (selectedTab === 'one') {
+        setStepFormData(values)
+        handleNext()
+        console.log('logic for register page',)
+      } else {
+        setStepFormData(values)
+        handleNext()
+        console.log('logic for login page',)
+      }
+    }
+  }
   useImperativeHandle(ref, () => ({
     submitForm,
   }));
   const handleMenu = () => {
-    console.log('click on hello');
     handleMenuOpen((prev) => !prev);
   };
   return (
     <div className="home">
+       <Helmet>
+        <title> Dashboard: Service</title>
+      </Helmet>
       <Box>
         <Grid container spacing={3} className="box">
           <Grid item xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading">
                 <Typography className="tab-title" variant="h2">
-                  {' '}
                   <MenuIcon
                     className="hamburger-icon"
                     onClick={handleMenu}
@@ -79,10 +87,9 @@ const SixView = forwardRef((props, ref) => {
               </Tabs>
               <Formik
                 key={formKey}
+                innerRef={formRef}
                 initialValues={selectedTab === 'one' ? initialRegValues : initialLoginValues}
                 validationSchema={selectedTab === 'one' ? RegisterValidator : LoginValidator}
-                // onSubmit={selectedTab === 'one' ? handleRegister : handleLogin}
-                onSubmit={submitForm}
                 enableReinitialize
               >
                 {({ values, handleChange, handleBlur, errors }) => (
@@ -258,6 +265,7 @@ const SixView = forwardRef((props, ref) => {
 });
 SixView.propTypes = {
   setStepFormData: PropTypes.func,
+  handleNext: PropTypes.func,
   handleMenuOpen: PropTypes.func,
 };
 export default SixView;

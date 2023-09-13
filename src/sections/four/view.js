@@ -4,9 +4,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import './four.scss';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet-async';
 
 const FourView = forwardRef((props, ref) => {
-  const { handleMenuOpen, setStepFormData } = props;
+  const { handleMenuOpen, setStepFormData, handleNext } = props;
 
   const ServiceData = [
     { service_name: 'Provider 1', sub: 'sub- abc' },
@@ -22,6 +23,7 @@ const FourView = forwardRef((props, ref) => {
     console.log('selected service item', item);
   };
   const submitForm = () => {
+    handleNext()
     console.log('called next click submit four page');
   };
   useImperativeHandle(ref, () => ({
@@ -33,7 +35,10 @@ const FourView = forwardRef((props, ref) => {
   };
   return (
     <div className="home">
-      <Box sx={{}}>
+      <Helmet>
+        <title> Dashboard: Service</title>
+      </Helmet>
+      <Box>
         <Grid container spacing={3} className="box">
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
@@ -87,5 +92,7 @@ const FourView = forwardRef((props, ref) => {
 FourView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
+  handleNext: PropTypes.func,
+
 };
 export default FourView;

@@ -3,10 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .header {
   padding: 0px 0px;
   border-bottom: 0.5px solid lightgray;
+
   .heading {
+
     // padding: 0 15px;
     h2 {
       font-size: 30px !important;
@@ -16,6 +19,7 @@
     }
   }
 }
+
 .sidebar {
   // padding-top: 30px;
   // border-right: 0.5px solid lightgray;
@@ -31,6 +35,7 @@
     background: #fff;
     // height: calc(100vh - 100px);
     padding: 0px 30px 0px 30px;
+
     .userImg {
       img {
         width: 170px;
@@ -41,42 +46,51 @@
         border-radius: 100%;
       }
     }
+
     .user_details {
       text-align: center;
+
       // margin: 20px 10px;
       .user_heading {
         font-size: 23px;
         font-weight: 600;
         color: #00a76f;
       }
+
       .userHeading_details {
         color: #637381;
       }
     }
+
     .questions {
       text-align: center;
+
       // margin: 20px 10px;
       .user_heading {
         font-size: 23px;
         font-weight: 600;
         color: #00a76f;
       }
+
       .userHeading_details {
         color: #637381;
       }
     }
   }
 }
+
 .dashbord {
   height: calc(100vh - 130px);
   overflow-y: auto;
   padding: 30px;
+
   .service_box {
     margin-top: 20px;
     padding: 24px;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0px 0px 4px #00000054;
+
     .card {
       display: flex;
       justify-content: space-between;
@@ -86,10 +100,12 @@
       border-radius: 11px;
       margin: 10px 0;
       cursor: pointer;
+
       .card-userDetails {
         display: flex;
         align-items: center;
         gap: 15px;
+
         .card-userImg {
           img {
             width: 50px;
@@ -97,16 +113,19 @@
             border-radius: 11px;
           }
         }
+
         .card-userName {
           h4 {
             font-size: 20px;
             font-weight: 500;
           }
+
           span {
             color: #7a7a7a;
           }
         }
       }
+
       .services {
         display: flex;
         align-items: center;
@@ -228,6 +247,11 @@
   display: none !important;
 }
 
+.dashbord .error-message {
+  margin: 10px 5px !important;
+  color: red !important;
+}
+
 @media only screen and (max-width: 1199px) {
   .grid-top {
     padding-top: 0px !important;
@@ -263,6 +287,7 @@
   .dashbord .service_box .card {
     gap: 15px;
   }
+
   .card-userName {
     text-align: initial;
   }
