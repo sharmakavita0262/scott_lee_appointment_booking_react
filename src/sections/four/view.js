@@ -1,39 +1,52 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { Box, Grid, Typography, CardMedia } from '@mui/material';
+import { Helmet } from 'react-helmet-async';
+
 import MenuIcon from '@mui/icons-material/Menu';
 
 import './four.scss';
 import PropTypes from 'prop-types';
 
 const FourView = forwardRef((props, ref) => {
-  const { handleMenuOpen, setStepFormData } = props;
-
+  const { handleMenuOpen, setStepFormData, handleNext, formValue } = props;
+  const [Error, setError] = useState(false);
+  const [provider, setProvider] = useState(formValue?.provider_Id ?? null);
   const ServiceData = [
-    { service_name: 'Provider 1', sub: 'sub- abc' },
-    { service_name: 'Provider 2', sub: 'sub- abc' },
-    { service_name: 'Provider 3', sub: 'sub- abc' },
-    { service_name: 'Provider 4', sub: 'sub- abc' },
-    { service_name: 'Provider 5', sub: 'sub- abc' },
-    { service_name: 'Provider 6', sub: 'sub- abc' },
+    { provider_Id: 1, service_name: 'Provider 1', sub: 'sub- abc' },
+    { provider_Id: 2, service_name: 'Provider 2', sub: 'sub- abc' },
+    { provider_Id: 3, service_name: 'Provider 3', sub: 'sub- abc' },
+    { provider_Id: 4, service_name: 'Provider 4', sub: 'sub- abc' },
+    { provider_Id: 5, service_name: 'Provider 5', sub: 'sub- abc' },
+    { provider_Id: 6, service_name: 'Provider 6', sub: 'sub- abc' },
   ];
-  console.log('setStepFormData', setStepFormData);
+  console.log('formValue of provider page', formValue);
   const selectServiceProvider = (item) => {
     setStepFormData(item);
-    console.log('selected service item', item);
+    setProvider(item);
+    setError(false);
   };
+
   const submitForm = () => {
-    console.log('called next click submit four page');
+    if (provider === null) {
+      setError(true);
+    } else {
+      setError(false);
+      handleNext();
+    }
   };
+
   useImperativeHandle(ref, () => ({
     submitForm,
   }));
   const handleMenu = () => {
-    console.log('click on hello');
     handleMenuOpen((prev) => !prev);
   };
   return (
     <div className="home">
-      <Box sx={{}}>
+      <Helmet>
+        <title> Dashboard: Service</title>
+      </Helmet>
+      <Box>
         <Grid container spacing={3} className="box">
           <Grid xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
@@ -76,6 +89,11 @@ const FourView = forwardRef((props, ref) => {
                       </Grid>
                     ))}
                 </Grid>
+                <Box className="error-message">
+                  <Typography sx={{ fontSize: '18px' }}>
+                    {Error && 'Please select provider'}
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           </Grid>
@@ -87,5 +105,7 @@ const FourView = forwardRef((props, ref) => {
 FourView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
+  handleNext: PropTypes.func,
+  formValue: PropTypes.string,
 };
 export default FourView;

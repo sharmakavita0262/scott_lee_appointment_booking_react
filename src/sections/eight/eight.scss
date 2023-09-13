@@ -106,3 +106,50 @@
 .preference-title {
   margin-bottom: 15px;
 }
+
+@media only screen and (max-width: 1199px) {
+  .verify-booking-section .dashbord {
+    padding: 20px 15px 0px 40px !important;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .alert-text-box {
+    font-size: 12px !important;
+  }
+
+  .detail-heading {
+    text-align: center !important;
+  }
+
+  .service-heading {
+    font-size: 25px !important;
+    text-align: center !important;
+    padding: 0 !important;
+  }
+
+  .verify-booking-section .select-time {
+    gap: 5px !important;
+    margin-bottom: 0px !important;
+    flex-direction: column !important;
+  }
+  .verify-booking-section .date-heading {
+    font-size: 13px !important;
+  }
+
+  .verify-booking-section .alert-box {
+    padding-top: 10px;
+  }
+  .verify-booking-section .summary-model {
+    padding-top: 10px;
+  }
+
+  .verify-booking-section .user-box img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .verify-booking-section .dashbord {
+    padding: 0 16px 0px 32px !important;
+  }
+}

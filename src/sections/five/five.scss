@@ -117,7 +117,6 @@
 
 .slot-pick {
   color: #000 !important;
-  font-size: 25px !important;
 }
 
 .slot-date {
@@ -143,6 +142,12 @@
   font-size: 15px !important;
   color: #1e2b35;
   font-weight: bold;
+  transition: 0.5s;
+}
+
+.slot-chip:hover {
+  background: #00a76f;
+  color: #fff;
 }
 
 .slot-chip-active {
@@ -172,7 +177,7 @@
 }
 
 .select-date .MuiDateCalendar-root {
-  width: 100% !important;
+  width: 100%;
   background: linear-gradient(135deg, rgba(91, 228, 155, 0.2), rgba(0, 167, 111, 0.2))
     rgb(255, 255, 255);
   padding: 15px;
@@ -217,7 +222,7 @@
 }
 
 .select-date .MuiTypography-root {
-  font-size: 15px !important;
+  font-size: 15px;
   font-weight: 700 !important;
 }
 
@@ -279,6 +284,11 @@
   .select-date {
     padding: 10px 20px 0px 43px;
   }
+
+  .main .dashbord {
+    /* padding: 30px 50px 0px 50px !important; */
+    padding: 10px 15px 0px 40px !important;
+  }
 }
 
 @media only screen and (max-width: 575px) {
@@ -307,10 +317,6 @@
     margin: 0 auto !important;
   }
 
-  .summery-header {
-    margin-top: 250px;
-  }
-
   .main-one {
     padding: 15px 17px 0px 30px !important;
   }
@@ -319,7 +325,26 @@
     width: 90% !important;
     margin: 3px;
   }
+
+  .select-date {
+    overflow-x: hidden;
+    height: calc(100vh - 140px);
+  }
 }
 .time-slots {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 425px) {
+  .main-one .MuiDateCalendar-root {
+    width: 100% !important;
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .main-one .MuiDateCalendar-root {
+    width: 90% !important;
+    margin: 3px;
+  }
 }

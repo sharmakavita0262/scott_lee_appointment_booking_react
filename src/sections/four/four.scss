@@ -5,6 +5,14 @@
   box-shadow:
     rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.5s ease-in;
+}
+
+.product-service-card:hover {
+  background: linear-gradient(135deg, rgba(91, 228, 155, 0.2), rgba(0, 167, 111, 0.2))
+    rgb(255, 255, 255);
 }
 
 .product-service-card img {
@@ -22,8 +30,25 @@
   border-top: 1px solid silver;
 }
 
-.service-provied-section {
-  margin-top: 20px !important;
+.preferences-section .dashbord .service_box .card {
+  border: none;
+  padding: 0px;
+}
+
+// .service-provied-section {
+//   margin-top: 20px !important;
+// }
+
+@media only screen and (max-width: 1199px) {
+  .service-provied-section .dashbord {
+    padding: 20px 15px 0px 40px !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .service-provied-section .dashbord {
+    padding: 0px 19px 0px 40px;
+  }
 }
 
 @media only screen and (max-width: 575px) {
@@ -32,7 +57,25 @@
   }
 
   .service-provied-section .product-service-card img {
-    height: 120px;
-    width: 120px;
+    height: 100px;
+    width: 100px;
+  }
+  .service-provied-section {
+    margin-top: 5px !important;
+  }
+  .select-date .MuiTypography-root {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+  }
+
+  .service-provied-section .slot-check {
+    margin: 10px 0 10px 0 !important;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .select-date .MuiDateCalendar-root {
+    width: 88% !important;
+    margin: 0;
   }
 }

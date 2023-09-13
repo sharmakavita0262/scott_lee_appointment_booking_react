@@ -70,13 +70,10 @@
 .dashbord {
   height: calc(100vh - 130px);
   overflow-y: auto;
-  padding: 30px;
   .service_box {
-    margin-top: 20px;
-    padding: 24px;
     background-color: #ffffff;
     border-radius: 20px;
-    box-shadow: 0px 0px 4px #00000054;
+
     .card {
       display: flex;
       justify-content: space-between;
@@ -119,12 +116,29 @@
   padding: 0px !important;
 }
 
-.sidebar {
-  height: 100vh;
-  border-right: 1px dashed #e8ecee;
-  position: relative;
-  background: #fff;
-  z-index: 9;
+.dashbord .service_box {
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3294117647);
+}
+
+.service-section .dashbord .service_box {
+  box-shadow: none !important;
+  padding: 0px !important;
+}
+
+.service-section .dashbord {
+  padding: 0 20px 0px 20px;
+}
+
+.service-section .dashbord .service_box .card {
+  transition: 0.5s ease-in;
+}
+
+.service-section .dashbord .service_box .card:hover {
+  background: linear-gradient(135deg, rgba(91, 228, 155, 0.2), rgba(0, 167, 111, 0.2))
+    rgb(255, 255, 255);
 }
 
 .progressBar-line {
@@ -228,6 +242,11 @@
   display: none !important;
 }
 
+.dashbord .error-message {
+  margin: 10px 5px !important;
+  color: red !important;
+}
+
 @media only screen and (max-width: 1199px) {
   .grid-top {
     padding-top: 0px !important;
@@ -238,7 +257,7 @@
   }
 
   .service-section .dashbord {
-    padding: 0px 10px 0px 30px !important;
+    padding: 20px 15px 0px 40px !important;
   }
 
   .service-section .dashbord .service_box .card {
@@ -251,6 +270,17 @@
 
   .navigation-btn {
     padding: 0 30px 8px 20px !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .service-section .dashbord .service_box {
+    padding: 0;
+    box-shadow: none !important;
+  }
+
+  .service-section .dashbord {
+    padding: 0px 15px 0px 40px !important;
   }
 }
 

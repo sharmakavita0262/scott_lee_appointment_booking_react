@@ -1,34 +1,47 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-
 import './two.scss';
-
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet-async';
 
 const TowView = forwardRef((props, ref) => {
-  const { setStepFormData, formValue, handleMenuOpen } = props;
+  const { setStepFormData, formValue, handleMenuOpen, handleNext } = props;
+  const [Error, setError] = useState(false);
+  const [serviceCategory, setServiceCategory] = useState(formValue?.sc_id ?? null);
+  console.log('formValue page 2', formValue);
+
   const ServiceData = [
-    { service_name: 'Haircut', sub: 'sub- abc' },
-    { service_name: 'Color', sub: 'sub- abc' },
-    { service_name: 'HairSpa', sub: 'sub- abc' },
+    { sc_id: 1, service_name: 'Haircut', description: 'sub- abc', price: 1000 },
+    { sc_id: 2, service_name: 'Color', description: 'sub- abc', price: 5000 },
+    { sc_id: 3, service_name: 'HairSpa', description: 'sub- abc', price: 8000 },
   ];
+
   const selectServiceCategory = (item) => {
+    setServiceCategory(item.id);
     setStepFormData(item);
-    console.log('selected service item', item);
+    setError(false);
   };
   const submitForm = () => {
-    console.log('called next click submit two page');
+    if (serviceCategory === null) {
+      setError(true);
+    } else {
+      setError(false);
+      handleNext();
+    }
   };
   useImperativeHandle(ref, () => ({
     submitForm,
   }));
   const handleMenu = () => {
-    console.log('click on hello');
     handleMenuOpen((prev) => !prev);
   };
+  console.log('serviceCategory===>', serviceCategory);
   return (
     <div className="home">
+      <Helmet>
+        <title> Dashboard: Service</title>
+      </Helmet>
       <Box>
         <Grid container spacing={3} className="box">
           <Grid xs={12} md={9} lg={9} className="service-card">
@@ -60,17 +73,22 @@ const TowView = forwardRef((props, ref) => {
                         <Box className="card-userDetails">
                           <Box className="card-userName">
                             <Typography variant="h4">{item.service_name}</Typography>
-                            <Typography variant="span">{item.sub}</Typography>
+                            <Typography variant="span">{item.description}</Typography>
                           </Box>
                         </Box>
                         <Box className="services service-figure">
-                          <Typography variant="span">$0,000.00{index}</Typography>
+                          <Typography variant="span">${item.price.toFixed(2)}</Typography>
                           <Typography className="start-text" variant="span">
                             STARTS FROM
                           </Typography>
                         </Box>
                       </Box>
                     ))}
+                </Box>
+                <Box className="error-message">
+                  <Typography sx={{ fontSize: '18px' }}>
+                    {Error && 'Please select service category'}
+                  </Typography>
                 </Box>
               </Box>
             </Box>
@@ -84,5 +102,6 @@ export default TowView;
 TowView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
+  handleNext: PropTypes.func,
   formValue: PropTypes.string,
 };

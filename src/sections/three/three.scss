@@ -15,9 +15,40 @@
 //   position: relative;
 // }
 
+.preferences-section .dashbord .service_box {
+  box-shadow: none !important;
+  padding: 0px !important;
+}
+
+.preferences-section .dashbord {
+  padding: 0 20px 0px 20px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .preferences-section .dashbord {
+    padding: 20px 15px 0px 40px !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .preferences-section .dashbord {
+    padding: 0px 10px 0px 30px !important;
+  }
+
+  .preferences-section .service_box {
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .preferences-section .dashbord .service_box .card {
+    border: 0px solid lightgray;
+    padding: 5px !important;
+  }
+}
+
 @media only screen and (max-width: 575px) {
   .preferences-section .dashbord {
-    padding: 10px 10px 0px 35px !important;
+    padding: 5px 7px 0px 30px !important;
   }
 
   .preferences-section .product-service-card img {
@@ -36,5 +67,60 @@
 
   .preferences-section .dashbord .service_box {
     margin: 0 !important;
+  }
+
+  .preferences-section .service_box {
+    padding: 0px !important;
+  }
+
+  .summery-heading {
+    font-size: 25px !important;
+    padding: 10px 0px 9px 0px;
+    text-align: center;
+  }
+
+  .summery-card {
+    padding: 0 20px 0px 30px;
+  }
+
+  .summery-card-title {
+    padding: 10px 0 15px 0px;
+    font-size: 18px !important;
+    text-align: center;
+  }
+
+  .summery-sub-title {
+    font-size: 14px !important;
+    text-align: center;
+  }
+
+  .bottom-user .provider-text {
+    justify-content: space-between;
+  }
+
+  .user-box {
+    padding: 10px;
+    margin-bottom: 0;
+  }
+
+  .summery-selection-box {
+    gap: 10px;
+  }
+
+  .user-box img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .user-box-title {
+    margin-bottom: 10px;
+  }
+
+  .user-box-title p {
+    padding-bottom: 5px;
+  }
+
+  .author-contact p {
+    margin: 0px 0px 0px 0px;
   }
 }

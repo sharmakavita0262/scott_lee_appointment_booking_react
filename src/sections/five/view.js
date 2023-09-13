@@ -2,11 +2,13 @@ import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box, Grid, Typography } from '@mui/material';
+import { Helmet } from 'react-helmet-async';
+
 import './five.scss';
 import CustomDatePicker from 'src/components/CustomDatePicker';
 
 const FiveView = forwardRef((props, ref) => {
-  const { handleMenuOpen, setStepFormData } = props;
+  const { handleMenuOpen, setStepFormData, handleNext } = props;
   const [FormData, setFormData] = useState({
     selectedDate: '',
     slot: '',
@@ -21,17 +23,19 @@ const FiveView = forwardRef((props, ref) => {
   };
   console.log('newDate', FormData);
   const submitForm = () => {
-    console.log('called next click submit five page');
+    handleNext();
   };
   useImperativeHandle(ref, () => ({
     submitForm,
   }));
   const handleMenu = () => {
-    console.log('click on hello');
     handleMenuOpen((prev) => !prev);
   };
   return (
     <div className="home">
+      <Helmet>
+        <title> Dashboard: Service</title>
+      </Helmet>
       <Box>
         <Grid container spacing={3} className="box">
           <Grid xs={12} md={9} lg={9} className="service-card">
@@ -104,5 +108,6 @@ const FiveView = forwardRef((props, ref) => {
 FiveView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
+  handleNext: PropTypes.func,
 };
 export default FiveView;

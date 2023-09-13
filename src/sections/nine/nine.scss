@@ -56,3 +56,92 @@
 .your-details p + p {
   margin-top: 5px;
 }
+
+@media only screen and (max-width: 1199px) {
+  .appointment-section .dashbord {
+    padding: 20px 15px 0px 40px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .appointment-section .conifrmation-model {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .appointment-section .Confirmation-code {
+    padding: 10px 0 10px 0;
+    text-align: center;
+  }
+
+  .appointment-section .Confirmation-title {
+    text-align: center;
+  }
+
+  .qr-model-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .qr-model-box img {
+    border-radius: 10px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .appointment-section .dashbord {
+    padding: 0px 10px 0px 30px !important;
+  }
+
+  .appointment-section .conifrmation-model {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .appointment-section .appointment-model {
+    width: auto;
+  }
+
+  .appointment-section .Confirmation-code {
+    padding: 10px 0 10px 0;
+    text-align: center;
+  }
+
+  .appointment-section .Confirmation-title {
+    text-align: center;
+  }
+
+  .appointment-section .Confirmation-title {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .appointment-section .qr-model-box img {
+    width: 85px;
+    height: 85px;
+    border-radius: 5px;
+  }
+
+  .qr-model-box {
+    text-align: center;
+  }
+
+  .appointment-section .service-heading {
+    font-size: 19px !important;
+    margin-bottom: 10px;
+  }
+
+  .appointment-section .select-time {
+    margin-bottom: 0;
+    flex-direction: column;
+    gap: 0px !important;
+  }
+
+  .appointment-section .date-heading {
+    font-size: 13px !important;
+  }
+}

@@ -1,19 +1,8 @@
 import { Box, Button, Grid } from '@mui/material';
 import React from 'react';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Helmet } from 'react-helmet-async';
 import Sidebar from '../../components/sidebar';
-import Page from './one';
-import Page2 from './two';
-import Page3 from './three';
-import Page4 from './four';
-import Page5 from './five';
 import SummaryCard from '../../components/summaryCard';
-import Page6 from './six';
-import Page7 from './seven';
-import Page9 from './nine';
-import Page8 from './eight';
 import OneView from '../../sections/one/view';
 import TowView from '../../sections/two/view';
 import ThreeView from '../../sections/three/view';
@@ -71,11 +60,12 @@ function Dashboard() {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
-
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
   const callChildFunction = () => {
     console.log('called next click', childRef);
     if (childRef.current) {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
       childRef.current.submitForm();
     }
   };
@@ -89,6 +79,7 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
+            handleNext={handleNext}
           />
         );
       case 2:
@@ -98,6 +89,7 @@ function Dashboard() {
             handleMenuOpen={handleMenuOpen}
             setStepFormData={setStepFormData}
             formValue={formValue}
+            handleNext={handleNext}
           />
         );
       case 3:
@@ -107,6 +99,7 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
+            handleNext={handleNext}
           />
         );
       case 4:
@@ -116,6 +109,7 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
+            handleNext={handleNext}
           />
         );
       case 5:
@@ -125,6 +119,7 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
+            handleNext={handleNext}
           />
         );
       case 6:
@@ -134,6 +129,7 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
+            handleNext={handleNext}
           />
         );
       case 7:
@@ -143,6 +139,7 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
+            handleNext={handleNext}
           />
         );
       case 8:
@@ -152,6 +149,7 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
+            handleNext={handleNext}
           />
         );
       case 9:
@@ -161,6 +159,7 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
+            handleNext={handleNext}
           />
         );
 
@@ -201,18 +200,15 @@ function Dashboard() {
                     onClick={handleBack}
                     disabled={activeStep === 1}
                   >
-                    <ChevronLeftIcon />
                     Back
                   </Button>
 
                   <Button
                     size="small step-back-nxt"
-                    type="submit"
                     onClick={callChildFunction}
                     disabled={activeStep === 9}
                   >
                     Next
-                    <ChevronRightIcon />
                   </Button>
                 </Box>
               </Box>
@@ -230,18 +226,16 @@ function Dashboard() {
                         onClick={handleBack}
                         disabled={activeStep === 1}
                       >
-                        <ChevronLeftIcon /> Back
+                        Back
                       </Button>
                     )}
                     {activeStep < 9 && (
                       <Button
-                        type="submit"
                         size="small step-back-nxt"
                         onClick={callChildFunction}
                         disabled={activeStep === 9}
                       >
                         Next
-                        <ChevronRightIcon />
                       </Button>
                     )}
                   </Box>

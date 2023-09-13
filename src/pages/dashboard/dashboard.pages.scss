@@ -58,6 +58,18 @@
   }
 }
 
+@media only screen and (max-width: 575px) {
+  .navigation-btn .step-back-nxt {
+    font-size: 15px !important;
+    padding: 5px 10px 5px 10px !important;
+  }
+
+  .navigation-btn .step-back-btn {
+    font-size: 15px !important;
+    padding: 5px 10px 5px 10px !important;
+  }
+}
+
 // .step-back-btn-inactive {
 //   opacity: 0 !important;
 //   pointer-events: none !important;

@@ -41,6 +41,51 @@
   font-weight: 100;
 }
 
+.category-section .dashbord .service_box {
+  box-shadow: none !important;
+  padding: 0px !important;
+}
+
+.category-section .dashbord {
+  padding: 0 20px 0px 20px;
+}
+
+.category-section .dashbord .service_box .card {
+  transition: 0.5s ease-in;
+}
+
+.category-section .dashbord .service_box .card:hover {
+  background: linear-gradient(135deg, rgba(91, 228, 155, 0.2), rgba(0, 167, 111, 0.2))
+    rgb(255, 255, 255);
+}
+
+// .category-section .dashbord .service_box .card:hover .card-userName h4 {
+//   color: #fff;
+// }
+
+@media only screen and (max-width: 1199px) {
+  .category-section .dashbord {
+    padding: 20px 15px 0px 40px !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .category-section .dashbord {
+    padding: 0px 9px 0px 30px;
+  }
+  .category-section .dashbord .service_box {
+    padding: 0px 10px 0px 10px !important;
+    box-shadow: none !important;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .category-section .dashbord {
+    padding: 0px 5px 0px 32px !important;
+  }
+}
+
 @media only screen and (max-width: 575px) {
   .category-section .dashbord {
     padding: 0px 0px 0px 25px !important;

@@ -6,7 +6,7 @@ import './nine.scss';
 import PropTypes from 'prop-types';
 
 const NineView = forwardRef((props, ref) => {
-  const { setStepFormData, handleMenuOpen } = props;
+  const { setStepFormData, handleMenuOpen, handleNext } = props;
   const [selectedTab, setSelectedTab] = useState('one');
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -40,61 +40,64 @@ const NineView = forwardRef((props, ref) => {
                 </Typography>
               </Box>
             </Box>
-            <Box className="dashbord">
-              <Box className="conifrmation-model">
-                <Box className="conifrmation-box">
-                  <Typography className="Confirmation-title">Confirmation</Typography>
-                  <Typography className="Confirmation-code">WN43CPV</Typography>
-                  <Box className="Confirmation-btn">
-                    <Button className="Calendar-btn">Add to Calendar</Button>
-                    <Button className="print-btn">Print</Button>
-                  </Box>
-                </Box>
-                <Box className="qr-model-box">
-                  <Box className="qr-model-box">
-                    <img
-                      src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
-                      alt="temp"
-                    />
-                  </Box>
-                  <Typography>Show QR code</Typography>
-                </Box>
-              </Box>
 
-              <Box className="summary-model appointment-model">
-                <Typography className="detail-heading">LENGTH OF APPOINTMENT</Typography>
-                <Box>
-                  <Typography className="service-heading">Selected Service</Typography>
-                  <Box className="select-time">
-                    <Typography className="date-heading">Sep 24, 2023, 9:00am</Typography>
-                    <Typography className="timezone-heading">TIME ZONE</Typography>
-                  </Box>
-                </Box>
-
-                <Box className="provider-box">
-                  <Box className="user-box">
-                    <Box className="user-box-title">
-                      <Typography>PROVIDER</Typography>
+            <Box className="appointment-section">
+              <Box className="dashbord">
+                <Box className="conifrmation-model">
+                  <Box className="conifrmation-box">
+                    <Typography className="Confirmation-title">Confirmation</Typography>
+                    <Typography className="Confirmation-code">WN43CPV</Typography>
+                    <Box className="Confirmation-btn">
+                      <Button className="Calendar-btn">Add to Calendar</Button>
+                      <Button className="print-btn">Print</Button>
                     </Box>
-                    <Box className="user-avtar-box">
+                  </Box>
+                  <Box className="qr-model-box">
+                    <Box className="qr-model-box">
                       <img
                         src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
                         alt="temp"
                       />
-                      <Typography>First Lastname</Typography>
+                    </Box>
+                    <Typography>Show QR code</Typography>
+                  </Box>
+                </Box>
+
+                <Box className="summary-model appointment-model">
+                  <Typography className="detail-heading">LENGTH OF APPOINTMENT</Typography>
+                  <Box>
+                    <Typography className="service-heading">Selected Service</Typography>
+                    <Box className="select-time">
+                      <Typography className="date-heading">Sep 24, 2023, 9:00am</Typography>
+                      <Typography className="timezone-heading">TIME ZONE</Typography>
                     </Box>
                   </Box>
 
-                  <Typography className="detail-heading preference-title">
-                    YOUR PREFERENCES
-                  </Typography>
-                  <Box className="preference-selection">
-                    <Typography className="detail-heading">Preference Name: </Typography>
-                    <Typography className="detail-heading">Selection</Typography>
-                  </Box>
-                  <Box className="preference-selection">
-                    <Typography className="detail-heading">Preference Name: </Typography>
-                    <Typography className="detail-heading">Selection</Typography>
+                  <Box className="provider-box">
+                    <Box className="user-box">
+                      <Box className="user-box-title">
+                        <Typography>PROVIDER</Typography>
+                      </Box>
+                      <Box className="user-avtar-box">
+                        <img
+                          src="https://images.pexels.com/photos/9444052/pexels-photo-9444052.jpeg"
+                          alt="temp"
+                        />
+                        <Typography>First Lastname</Typography>
+                      </Box>
+                    </Box>
+
+                    <Typography className="detail-heading preference-title">
+                      YOUR PREFERENCES
+                    </Typography>
+                    <Box className="preference-selection">
+                      <Typography className="detail-heading">Preference Name: </Typography>
+                      <Typography className="detail-heading">Selection</Typography>
+                    </Box>
+                    <Box className="preference-selection">
+                      <Typography className="detail-heading">Preference Name: </Typography>
+                      <Typography className="detail-heading">Selection</Typography>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
@@ -108,5 +111,6 @@ const NineView = forwardRef((props, ref) => {
 NineView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
+  handleNext: PropTypes.func,
 };
 export default NineView;
