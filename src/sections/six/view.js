@@ -1,9 +1,8 @@
 import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react';
-import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react';
 import { Box, Tabs, Tab, Grid, Typography, TextField, Button } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Helmet } from 'react-helmet-async';
+
 import PropTypes from 'prop-types';
 import './six.scss';
 import { Link } from 'react-router-dom';
@@ -14,7 +13,6 @@ const SixView = forwardRef((props, ref) => {
   const { setStepFormData, handleMenuOpen, handleNext } = props;
   const formRef = useRef();
 
-  const formRef = useRef();
   const [formKey, setFormKey] = useState(0); // Add this key state
 
   const initialRegValues = {
@@ -269,7 +267,6 @@ const SixView = forwardRef((props, ref) => {
 });
 SixView.propTypes = {
   setStepFormData: PropTypes.func,
-  handleNext: PropTypes.func,
   handleMenuOpen: PropTypes.func,
   handleNext: PropTypes.func,
 };

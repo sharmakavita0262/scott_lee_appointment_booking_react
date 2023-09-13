@@ -6,7 +6,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import './four.scss';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet-async';
 
 const FourView = forwardRef((props, ref) => {
   const { handleMenuOpen, setStepFormData, handleNext, formValue } = props;

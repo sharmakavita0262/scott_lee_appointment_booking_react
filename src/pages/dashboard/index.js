@@ -80,7 +80,6 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
-            handleNext={handleNext}
           />
         );
       case 2:
@@ -91,7 +90,6 @@ function Dashboard() {
             handleMenuOpen={handleMenuOpen}
             setStepFormData={setStepFormData}
             formValue={formValue}
-            handleNext={handleNext}
           />
         );
       case 3:
@@ -102,7 +100,6 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
-            handleNext={handleNext}
           />
         );
       case 4:
@@ -113,7 +110,6 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
-            handleNext={handleNext}
           />
         );
       case 5:
@@ -124,7 +120,6 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
-            handleNext={handleNext}
           />
         );
       case 6:
@@ -135,7 +130,6 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
-            handleNext={handleNext}
           />
         );
       case 7:
@@ -146,7 +140,6 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
-            handleNext={handleNext}
           />
         );
       case 8:
@@ -157,7 +150,6 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
-            handleNext={handleNext}
           />
         );
       case 9:
@@ -168,7 +160,6 @@ function Dashboard() {
             ref={childRef}
             setStepFormData={setStepFormData}
             formValue={formValue}
-            handleNext={handleNext}
           />
         );
 
