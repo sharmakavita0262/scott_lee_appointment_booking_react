@@ -14,6 +14,8 @@ import NineView from '../../sections/nine/view';
 import EightView from '../../sections/eight/view';
 
 function Dashboard() {
+
+
   const [activeStep, setActiveStep] = React.useState(1);
   const [formValue, setFormValue] = React.useState();
   const childRef = React.useRef(null);
@@ -25,35 +27,49 @@ function Dashboard() {
   const setStepFormData = (value) => {
     setFormValue((prev) => ({ ...prev, ...value }));
   };
-  console.log('formValue of index page=======>', formValue);
 
   const headerData = [
     {
       heading: 'Service Selection',
+      description: 'Please select a service for which you want to schedulean appointment',
     },
     {
-      heading: 'Service Selection Category',
+      heading: 'Service Selection ',
+      description: 'Please select a service for which you want to schedulean appointment',
     },
     {
       heading: 'Personal Preferences',
+      description: 'Please answer this set of questions to customize your experience.',
     },
     {
       heading: 'Service Provider',
+      description:
+        'You may pick a specific provider to perform your service or select “Any” to have one automatically assigned to you.',
     },
+
     {
       heading: 'Date & Time',
+      description:
+        'Click on a date to see a timeline of available slots, click on an available time slot to reserve it.',
     },
     {
       heading: 'Your Information',
+      description:
+        'Please provide your contact details so we can send your confirmation and other notifications.',
     },
     {
       heading: 'Your Information',
+      description:
+        'Please provide your contact details so we can send your confirmation and other notifications.',
     },
     {
       heading: 'Review & Verify',
+      description:
+        'Review and double-check your reservation details. If everything is accurate, click or tap the Submit button.',
     },
     {
       heading: 'Confirmation',
+      description: 'Please select a service for which you want to schedule an appointment',
     },
   ];
 
@@ -64,12 +80,10 @@ function Dashboard() {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
   const callChildFunction = () => {
-    console.log('called next click', childRef);
     if (childRef.current) {
       childRef.current.submitForm();
     }
   };
-
   function renderStepContent(step) {
     switch (step) {
       case 1:
@@ -167,7 +181,6 @@ function Dashboard() {
         return <div>Not Found</div>;
     }
   }
-
   return (
     <div>
       <Helmet>
@@ -193,24 +206,26 @@ function Dashboard() {
             <Grid item xs={12} md={12} lg={9} className="grid-top">
               <Box sx={{ position: 'relative', height: '100vh' }}>
                 {renderStepContent(activeStep)}
-                <Box className="navigation-btn">
-                  <Button
-                    className={activeStep === 1 && 'step-back-btn-inactive'}
-                    size="small step-back-btn"
-                    onClick={handleBack}
-                    disabled={activeStep === 1}
-                  >
-                    Back
-                  </Button>
+                {activeStep < 9 && (
+                  <Box className="navigation-btn">
+                    <Button
+                      className={activeStep === 1 ? 'step-back-btn-inactive' : ""}
+                      size="small step-back-btn"
+                      onClick={handleBack}
+                      disabled={activeStep === 1}
+                    >
+                      Back
+                    </Button>
 
-                  <Button
-                    size="small step-back-nxt"
-                    onClick={callChildFunction}
-                    disabled={activeStep === 9}
-                  >
-                    Next
-                  </Button>
-                </Box>
+                    <Button
+                      size="small step-back-nxt"
+                      onClick={callChildFunction}
+                      disabled={activeStep === 9}
+                    >
+                      Next
+                    </Button>
+                  </Box>
+                )}
               </Box>
             </Grid>
           ) : (
@@ -221,7 +236,7 @@ function Dashboard() {
                   <Box className="navigation-btn">
                     {activeStep > 1 && (
                       <Button
-                        className={activeStep === 1 && 'step-back-btn-inactive'}
+                        className={activeStep === 1 ? 'step-back-btn-inactive' : ""}
                         size="small step-back-btn"
                         onClick={handleBack}
                         disabled={activeStep === 1}
@@ -229,20 +244,21 @@ function Dashboard() {
                         Back
                       </Button>
                     )}
+
                     {activeStep < 9 && (
                       <Button
                         size="small step-back-nxt"
                         onClick={callChildFunction}
                         disabled={activeStep === 9}
                       >
-                        Next
+                        {activeStep === 8 ? 'Submit' : 'Next'}
                       </Button>
                     )}
                   </Box>
                 </Box>
               </Grid>
               <Grid item xs={12} md={12} lg={3} className="summery-steps">
-                <SummaryCard activeStep={activeStep} />
+                <SummaryCard activeStep={activeStep} formValue={formValue} />
               </Grid>
             </>
           )}

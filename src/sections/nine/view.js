@@ -19,7 +19,6 @@ const NineView = forwardRef((props, ref) => {
     submitForm,
   }));
   const handleMenu = () => {
-    console.log('click on hello');
     handleMenuOpen((prev) => !prev);
   };
   return (

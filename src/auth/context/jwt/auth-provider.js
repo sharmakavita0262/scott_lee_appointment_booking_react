@@ -80,7 +80,6 @@ export function AuthProvider({ children }) {
         });
       }
     } catch (error) {
-      console.error(error);
       dispatch({
         type: 'INITIAL',
         payload: {

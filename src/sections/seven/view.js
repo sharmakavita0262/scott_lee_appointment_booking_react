@@ -11,7 +11,7 @@ import './seven.scss';
 import { Link } from 'react-router-dom';
 
 const SevenView = forwardRef((props, ref) => {
-  const { setStepFormData, handleMenuOpen, handleNext } = props;
+  const { setStepFormData, handleMenuOpen, handleNext, formValue } = props;
   const [selectedTab, setSelectedTab] = useState('one');
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -23,9 +23,9 @@ const SevenView = forwardRef((props, ref) => {
     submitForm,
   }));
   const handleMenu = () => {
-    console.log('click on hello');
     handleMenuOpen((prev) => !prev);
   };
+
   return (
     <div className="home">
       <Helmet>
@@ -68,6 +68,8 @@ const SevenView = forwardRef((props, ref) => {
                               label="FIRST NAME"
                               variant="outlined"
                               fullWidth
+                              readOnly
+                              value={formValue?.first_name}
                             />
                           </Box>
                         </Box>
@@ -80,6 +82,8 @@ const SevenView = forwardRef((props, ref) => {
                               label="LAST NAME"
                               variant="outlined"
                               fullWidth
+                              readOnly
+                              value={formValue?.last_name}
                             />
                           </Box>
                         </Box>
@@ -92,6 +96,8 @@ const SevenView = forwardRef((props, ref) => {
                               label="PHONE NUMBER"
                               variant="outlined"
                               fullWidth
+                              readOnly
+                              value={formValue?.phone}
                             />
                           </Box>
                         </Box>
@@ -104,6 +110,8 @@ const SevenView = forwardRef((props, ref) => {
                               label="EMAIL"
                               variant="outlined"
                               fullWidth
+                              readOnly
+                              value={formValue?.email}
                             />
                           </Box>
                         </Box>
@@ -116,6 +124,8 @@ const SevenView = forwardRef((props, ref) => {
                               label="COMMENTS"
                               variant="outlined"
                               fullWidth
+                              readOnly
+                              value={formValue?.comments}
                             />
                           </Box>
                         </Box>
@@ -132,6 +142,7 @@ const SevenView = forwardRef((props, ref) => {
                             label="EMAIL"
                             variant="outlined"
                             fullWidth
+                            readOnly
                           />
                         </Box>
                       </Grid>
@@ -144,6 +155,7 @@ const SevenView = forwardRef((props, ref) => {
                               variant="outlined"
                               type="password"
                               fullWidth
+                              readOnly
                             />
                           </Box>
                         </Box>
@@ -168,5 +180,6 @@ SevenView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
   handleNext: PropTypes.func,
+  formValue: PropTypes.string,
 };
 export default SevenView;

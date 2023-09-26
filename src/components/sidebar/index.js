@@ -8,8 +8,6 @@ import { Box, Typography, MobileStepper } from '@mui/material';
 function Sidebar(props) {
   const { step, content, menuOpen, handleMenuOpen } = props;
 
-  console.log('open', step, menuOpen);
-
   return (
     <div>
       <Box className={menuOpen ? 'sidebar sidebar-active' : 'sidebar'}>
@@ -30,12 +28,18 @@ function Sidebar(props) {
               alt="temp"
             />
           </Box>
+
           <Box className="user_details">
+            {step === 2 && (
+              <Typography variant="p" className="category-head">
+                Category
+              </Typography>
+            )}
             <Typography variant="h4" className="user_heading">
               {content?.heading}
             </Typography>
             <Typography variant="span" className="userHeading_details">
-              Please select a service for which you want to schedule an appointment
+              {content?.description}
             </Typography>
           </Box>
         </Box>

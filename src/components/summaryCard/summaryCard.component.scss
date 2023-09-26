@@ -72,15 +72,14 @@
   font-weight: 500;
 }
 
+.bottom-user {
+  border-top: 1px solid lightgray;
+}
 .bottom-user .provider-text {
   display: flex;
   align-items: center;
   gap: 35px;
   padding-top: 15px;
-}
-
-.bottom-user {
-  border-top: 1px solid lightgray;
 }
 
 .summery-time {
@@ -101,10 +100,6 @@
   align-items: center;
   gap: 5px;
   padding-top: 15px;
-}
-
-.bottom-user {
-  border-top: 1px solid lightgray;
 }
 
 .summery-time {

@@ -12,7 +12,6 @@ const EightView = forwardRef((props, ref) => {
   };
   const submitForm = () => {
     handleNext();
-    console.log('called next click submit eight page');
   };
   useImperativeHandle(ref, () => ({
     submitForm,

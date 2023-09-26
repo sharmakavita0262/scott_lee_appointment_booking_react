@@ -3,32 +3,34 @@ import { Box, Grid, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import './two.scss';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet-async';
+import { Loader } from 'src/components/loading-screen';
+import { useGetServiceDetailsQuery } from '../../api/services'
 
 const TowView = forwardRef((props, ref) => {
   const { setStepFormData, formValue, handleMenuOpen, handleNext } = props;
-
+  const {
+    data: ServiceCategory, isLoading: ServiceCategoryLoading, isSuccess: ServiceCategorySuccess, isError: ServiceCategoryError } = useGetServiceDetailsQuery(formValue.serviceId)
   const [Error, setError] = useState(false);
-  const [serviceCategory, setServiceCategory] = useState(formValue.service_name ?? null);
-  console.log('formValue page 2', formValue);
+  const [serviceCategoryId, setServiceCategoryId] = useState(formValue?.serviceCategoryId ?? null);
+  const { subcategories
+  } = ServiceCategorySuccess && ServiceCategory
 
-  const ServiceData = [
-    { service_name: 'Haircut', description: 'sub- abc', price: 1000 },
-    { service_name: 'Color', description: 'sub- abc', price: 5000 },
-    { service_name: 'HairSpa', description: 'sub- abc', price: 8000 },
-  ];
+  console.log('formValue page 2', formValue, subcategories, ServiceCategory);
+
 
   const selectServiceCategory = (item) => {
-    setServiceCategory(item);
-    setStepFormData(item);
+    setServiceCategoryId(item.id);
+    setStepFormData({ "serviceCategoryId": item.id });
     setError(false);
   };
   const submitForm = () => {
-    if (serviceCategory === null) {
-      setError(true);
-    } else {
-      setError(false);
-      handleNext();
+    if (subcategories?.length > 0) {
+      if (serviceCategoryId === null) {
+        setError(true);
+      } else {
+        setError(false);
+        handleNext();
+      }
     }
   };
   useImperativeHandle(ref, () => ({
@@ -37,15 +39,11 @@ const TowView = forwardRef((props, ref) => {
   const handleMenu = () => {
     handleMenuOpen((prev) => !prev);
   };
-  console.log('serviceCategory===>', serviceCategory);
   return (
     <div className="home">
-      <Helmet>
-        <title> Dashboard: Service</title>
-      </Helmet>
       <Box>
         <Grid container spacing={3} className="box">
-          <Grid xs={12} md={9} lg={9} className="service-card">
+          <Grid item xs={12} md={9} lg={9} className="service-card">
             <Box className="header">
               <Box className="heading Service-section">
                 <Typography className="tab-title" variant="h2">
@@ -61,12 +59,18 @@ const TowView = forwardRef((props, ref) => {
             </Box>
             <Box className="category-section">
               <Box className="dashbord">
+                {ServiceCategoryLoading && !ServiceCategorySuccess && <Loader />}
+
                 <Box className="service_box">
-                  {ServiceData &&
-                    ServiceData.length > 0 &&
-                    ServiceData.map((item, index) => (
+                  {!ServiceCategoryLoading && subcategories && ServiceCategorySuccess &&
+                    subcategories?.length > 0 &&
+                    subcategories?.map((item, index) => (
                       <Box
+                        key={index}
                         className="card"
+                        sx={{
+                          background: serviceCategoryId === item.id ? "linear-gradient(135deg, rgba(91, 228, 155, 0.2), rgba(0, 167, 111, 0.2))rgb(255, 255, 255)" : ""
+                        }}
                         onClick={() => {
                           selectServiceCategory(item);
                         }}
@@ -74,17 +78,19 @@ const TowView = forwardRef((props, ref) => {
                         <Box className="card-userDetails">
                           <Box className="card-userName">
                             <Typography variant="h4">{item.service_name}</Typography>
-                            <Typography variant="span">{item.description}</Typography>
+                            <Typography variant="span">{item.service_dec}</Typography>
                           </Box>
                         </Box>
                         <Box className="services service-figure">
-                          <Typography variant="span">${item.price.toFixed(2)}</Typography>
+                          <Typography variant="span">${parseFloat(item.service_price).toFixed(2)}</Typography>
                           <Typography className="start-text" variant="span">
                             STARTS FROM
                           </Typography>
                         </Box>
                       </Box>
                     ))}
+                  {ServiceCategoryError || subcategories?.length === 0 && < Box >
+                    <Typography className="no-data" >NO DATA FOUND </Typography></Box>}
                 </Box>
                 <Box className="error-message">
                   <Typography sx={{ fontSize: '18px' }}>
@@ -96,7 +102,7 @@ const TowView = forwardRef((props, ref) => {
           </Grid>
         </Grid>
       </Box>
-    </div>
+    </div >
   );
 });
 export default TowView;
@@ -104,5 +110,5 @@ TowView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
   handleNext: PropTypes.func,
-  formValue: PropTypes.string,
+  formValue: PropTypes.object,
 };

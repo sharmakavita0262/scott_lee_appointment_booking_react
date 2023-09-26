@@ -10,20 +10,20 @@ import { Form, Formik, ErrorMessage } from 'formik';
 import { RegisterValidator, LoginValidator } from 'src/components/validators/validationSchema';
 
 const SixView = forwardRef((props, ref) => {
-  const { setStepFormData, handleMenuOpen, handleNext } = props;
+  const { setStepFormData, handleMenuOpen, handleNext, formValue } = props;
   const formRef = useRef();
 
   const [formKey, setFormKey] = useState(0); // Add this key state
 
   const initialRegValues = {
-    first_name: '',
-    last_name: '',
-    phone: '',
-    email: '',
-    comments: '',
+    first_name: formValue?.first_name || '',
+    last_name: formValue?.last_name || '',
+    phone: formValue?.phone || '',
+    email: formValue?.email || '',
+    comments: formValue?.comments || '',
   };
   const initialLoginValues = {
-    uesr_email: '',
+    email: '',
     password: '',
   };
   const [selectedTab, setSelectedTab] = useState('one');
@@ -44,11 +44,9 @@ const SixView = forwardRef((props, ref) => {
       if (selectedTab === 'one') {
         setStepFormData(values);
         handleNext();
-        console.log('logic for register page');
       } else {
         setStepFormData(values);
         handleNext();
-        console.log('logic for login page');
       }
     }
   };
@@ -92,7 +90,6 @@ const SixView = forwardRef((props, ref) => {
                 >
                   {({ values, handleChange, handleBlur, errors }) => (
                     <Form>
-                      {console.log('errors,values called==>', errors)}
                       {selectedTab === 'one' ? (
                         <Box>
                           <Grid container spacing={2}>
@@ -209,8 +206,8 @@ const SixView = forwardRef((props, ref) => {
                             <Grid item xs={12} md={12} lg={12}>
                               <Box>
                                 <TextField
-                                  id="uesr_email"
-                                  name="uesr_email"
+                                  id="email"
+                                  name="email"
                                   onChange={handleChange}
                                   onBlur={handleBlur}
                                   value={values.email}
@@ -218,11 +215,7 @@ const SixView = forwardRef((props, ref) => {
                                   variant="outlined"
                                   fullWidth
                                 />
-                                <ErrorMessage
-                                  className="error-div"
-                                  name="uesr_email"
-                                  component="div"
-                                />
+                                <ErrorMessage className="error-div" name="email" component="div" />
                               </Box>
                             </Grid>
                             <Grid item xs={12} md={12} lg={12}>
@@ -269,5 +262,6 @@ SixView.propTypes = {
   setStepFormData: PropTypes.func,
   handleMenuOpen: PropTypes.func,
   handleNext: PropTypes.func,
+  formValue: PropTypes.string,
 };
 export default SixView;
